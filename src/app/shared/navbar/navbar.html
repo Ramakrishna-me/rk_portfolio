@@ -1,37 +1,71 @@
-<nav class="glass-nav">
+<nav class="navbar navbar-expand-lg glass-nav fixed-top shadow-sm">
+    <div class="container-fluid px-3">
 
-    <div class="nav-links">
-        <a routerLink routerLinkActive="active"
-            [routerLinkActiveOptions]="{exact:true}">Home</a>
-        <a routerLink="about" routerLinkActive="active">About</a>
-        <a routerLink="work" routerLinkActive="active">Work</a>
-        <a routerLink="contact" routerLinkActive="active">Contact</a>
+        <!-- Brand / Logo -->
+        <a class="navbar-brand d-flex align-items-center" routerLink="/">
+            <img src="../../../assets/logo12-01.png" alt="no_logo"
+                class="brand-logo img-fluid me-2" />
+        </a>
+
+        <!-- Toggler (Hamburger) -->
+        <button
+            class="navbar-toggler border-0"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Links -->
+        <div class="collapse navbar-collapse justify-content-center"
+            id="navbarNav">
+            <ul class="navbar-nav mb-2 mb-lg-0 text-center">
+                <li class="nav-item mx-2">
+                    <a class="nav-link" routerLink routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact:true}">
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link" routerLink="about"
+                        routerLinkActive="active">About</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link" routerLink="work"
+                        routerLinkActive="active">Work</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link" routerLink="contact"
+                        routerLinkActive="active">Contact</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Social Icons -->
+        <div class="d-flex align-items-center gap-3 ms-lg-3 icon-section">
+            <div class="icon-item" (click)="openGithub()">
+                <div class="icon css-circle">
+                    <img src="assets/Icons/github.png" alt="GitHub"
+                        class="icon-img" />
+                </div>
+            </div>
+
+            <div class="icon-item" (click)="openInstagram()">
+                <div class="icon css-square">
+                    <img src="assets/Icons/instagram.png" alt="Instagram"
+                        class="icon-img" />
+                </div>
+            </div>
+
+            <div class="icon-item" (click)="openLinkedin()">
+                <div class="icon css-triangle">
+                    <img src="assets/Icons/linkedin.png" alt="LinkedIn"
+                        class="icon-img" />
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="icon-section">
-
-        <div class="icon-item" (click)="openGithub()">
-            <div class="icon css-circle">
-                <img src="assets/Icons/github.png" alt="GitHub" class="hi">
-            </div>
-            <!-- <label>Github</label> -->
-        </div>
-
-        <div class="icon-item" (click)="openInstagram()">
-            <div class="icon css-square">
-                <img src="assets/Icons/instagram.png" alt="no"
-                    class="hi">
-            </div>
-            <!-- <label>Instagram</label> -->
-        </div>
-
-        <div class="icon-item" (click)="openLinkedin()">
-            <div class="icon css-triangle">
-                <img src="assets/Icons/linkedin.png" alt="no"
-                    class="hi">
-            </div>
-            <!-- <label>Linkedin</label> -->
-        </div>
-    </div>
-
 </nav>

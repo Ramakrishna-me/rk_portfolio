@@ -11,9 +11,10 @@ import { BackgroundComponent } from './shared/background/background';
 import { NgxParticlesModule } from '@tsparticles/angular';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { Footer } from './shared/footer/footer';
 
 @NgModule({
-  declarations: [App, Home, About, Work, Contact, Navbar, BackgroundComponent],
+  declarations: [App, Home, About, Work, Contact, Navbar, BackgroundComponent, Footer],
   imports: [BrowserModule, AppRoutingModule, NgxParticlesModule, RouterModule, FormsModule],
   bootstrap: [App],
 })
