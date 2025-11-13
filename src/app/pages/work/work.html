@@ -1,0 +1,70 @@
+<section class="work-wrapper">
+    <div class="work-header fade-in">
+        <h1>My Creative Works</h1>
+        <p>Explore my Angular builds, design systems, and UI experiments</p>
+
+        <div class="work-filters">
+            <button
+                *ngFor="let category of categories"
+                [class.active]="selectedCategory === category"
+                (click)="filterCategory(category)">
+                {{ category }}
+            </button>
+        </div>
+    </div>
+
+    <!-- WORK GRID -->
+    <div class="work-grid">
+        <div
+            class="work-card fade-in"
+            *ngFor="let item of filteredItems"
+            [attr.data-type]="item.category"
+            (click)="handleCardClick(item)">
+
+            <div class="card-media">
+                <!-- IMAGE -->
+                <img
+                    *ngIf="item.file.endsWith('.jpg') ||
+                 item.file.endsWith('.jpeg') ||
+                 item.file.endsWith('.png') ||
+                 item.file.endsWith('.svg')"
+                    [src]="item.file"
+                    alt="{{ item.title }}" />
+
+                <!-- VIDEO -->
+                <video
+                    *ngIf="item.file.endsWith('.mp4') || item.file.endsWith('.webm')"
+                    [src]="item.file"
+                    muted autoplay loop></video>
+
+                <!-- PDF -->
+                <div class="pdf-preview" *ngIf="item.file.endsWith('.pdf')">
+                    <span> <img src="../../../assets/PDF_Logo-01.png"
+                            alt="no_img"
+                            class="pdf_img"> </span>
+                </div>
+            </div>
+
+            <!-- project -->
+            <div class="card-details">
+                <img
+                    *ngIf="item.image"
+                    src="assets/Angular_Logo-01.png"
+                    class="card-img" />
+
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.description }}</p>
+
+                <a
+                    *ngIf="(item.category === 'angular' || item.category === 'figma') && item.link"
+                    [href]="item.link"
+                    target="_blank"
+                    class="btn-primary"
+                    (click)="$event.stopPropagation()">
+                    Open Project
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>

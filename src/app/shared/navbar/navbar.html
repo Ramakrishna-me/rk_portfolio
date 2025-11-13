@@ -1,0 +1,37 @@
+<nav class="glass-nav">
+
+    <div class="nav-links">
+        <a routerLink routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact:true}">Home</a>
+        <a routerLink="about" routerLinkActive="active">About</a>
+        <a routerLink="work" routerLinkActive="active">Work</a>
+        <a routerLink="contact" routerLinkActive="active">Contact</a>
+    </div>
+
+    <div class="icon-section">
+
+        <div class="icon-item" (click)="openGithub()">
+            <div class="icon css-circle">
+                <img src="assets/Icons/github.png" alt="GitHub" class="hi">
+            </div>
+            <!-- <label>Github</label> -->
+        </div>
+
+        <div class="icon-item" (click)="openInstagram()">
+            <div class="icon css-square">
+                <img src="assets/Icons/instagram.png" alt="no"
+                    class="hi">
+            </div>
+            <!-- <label>Instagram</label> -->
+        </div>
+
+        <div class="icon-item" (click)="openLinkedin()">
+            <div class="icon css-triangle">
+                <img src="assets/Icons/linkedin.png" alt="no"
+                    class="hi">
+            </div>
+            <!-- <label>Linkedin</label> -->
+        </div>
+    </div>
+
+</nav>

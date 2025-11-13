@@ -1,0 +1,149 @@
+.about-section {
+  width: 100%;
+  padding: 80px 5%;
+  display: flex;
+  justify-content: center;
+  background: transparent;
+}
+
+.about-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+/* LEFT */
+.about-left {
+  flex: 45%;
+  position: relative;
+}
+
+.about-img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 6px;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* SHINE EFFECT */
+.shine-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-wrap::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(15deg);
+  opacity: 0;
+}
+
+.shine-wrap:hover::before {
+  animation: shineSwipe 1s ease forwards;
+}
+
+@keyframes shineSwipe {
+  0% {
+    top: -100%;
+    left: -50%;
+  }
+  100% {
+    top: 120%;
+    left: 50%;
+  }
+}
+
+/* RIGHT */
+.about-right {
+  flex: 55%;
+  color: #2a2a2a;
+}
+
+.title {
+  font-size: 52px;
+  font-weight: 800;
+}
+
+.subtitle {
+  color: #e63950;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 12px 0 22px;
+}
+
+.bio {
+  font-size: 17px;
+  line-height: 1.7;
+  opacity: 0.85;
+}
+
+/* LIST */
+.about-list {
+  margin: 30px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.about-list li {
+  font-size: 16px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.about-list i {
+  color: #e63950;
+}
+
+/* SOCIAL */
+.social-row {
+  display: flex;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.social-row i {
+  font-size: 22px;
+  color: #222;
+  transition: 0.3s ease;
+}
+
+.social-row i:hover {
+  color: #e63950;
+  transform: translateY(-3px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .about-img {
+    max-width: 300px;
+  }
+
+  .title {
+    font-size: 42px;
+  }
+
+  .about-list li {
+    justify-content: center;
+  }
+}
