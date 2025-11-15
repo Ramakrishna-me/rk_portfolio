@@ -411,17 +411,17 @@ export const WORK_ITEMS = [
   //  ANGULAR PROJECTS
   {
     file: 'assets/my_works/angular_dashboard.png',
-    title: 'TaskNexx Dashboard',
-    description: 'Role-based dashboard built with Angular 20 and SCSS animations.',
-    link: 'https://example.com/angular-dashboard',
+    title: 'Calculator',
+    description: 'This is my Calculator App and it was a first app i build.',
+    link: 'https://ramakrishna-me.github.io/calculator',
     category: 'angular',
     image: 'assets/Angular_Logo.gif',
   },
   {
     file: 'assets/my_works/angular_portfolio.png',
-    title: 'Portfolio Website',
-    description: 'Responsive Angular portfolio with GSAP and intersection animations.',
-    link: 'https://example.com/angular-portfolio',
+    title: 'E-Commerce',
+    description: 'This is a E-Commerce Website build with Angular.',
+    link: 'https://ramakrishna-me.github.io/e-commerce/',
     category: 'angular',
     image: 'assets/Angular_Logo.gif',
   },
