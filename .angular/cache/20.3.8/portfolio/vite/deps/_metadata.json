@@ -1,61 +1,55 @@
 {
-  "hash": "b64b31ce",
-  "configHash": "d9bda226",
+  "hash": "366b8581",
+  "configHash": "6ae35f46",
   "lockfileHash": "a73469de",
-  "browserHash": "bdc6ed60",
+  "browserHash": "6321084e",
   "optimized": {
     "@angular/common": {
       "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
       "file": "@angular_common.js",
-      "fileHash": "26e1d366",
+      "fileHash": "81f21d5e",
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "87904bce",
+      "fileHash": "1cf5d509",
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
-      "fileHash": "01e78309",
+      "fileHash": "f006e107",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "f1a6c34f",
+      "fileHash": "06ddff8d",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "2a5bfe0e",
+      "fileHash": "df05f5fb",
       "needsInterop": false
     },
     "@emailjs/browser": {
       "src": "../../../../../../node_modules/@emailjs/browser/es/index.js",
       "file": "@emailjs_browser.js",
-      "fileHash": "4e45ce69",
+      "fileHash": "e547f645",
       "needsInterop": false
     },
     "@tsparticles/angular": {
       "src": "../../../../../../node_modules/@tsparticles/angular/fesm2022/tsparticles-angular.mjs",
       "file": "@tsparticles_angular.js",
-      "fileHash": "fe9b2ca6",
-      "needsInterop": false
-    },
-    "animejs/lib/anime.es.js": {
-      "src": "../../../../../../node_modules/animejs/lib/anime.es.js",
-      "file": "animejs_lib_anime__es__js.js",
-      "fileHash": "c4f29262",
+      "fileHash": "e3d47548",
       "needsInterop": false
     },
     "zone.js": {
       "src": "../../../../../../node_modules/zone.js/fesm2015/zone.js",
       "file": "zone__js.js",
-      "fileHash": "311b411f",
+      "fileHash": "48c381de",
       "needsInterop": true
     }
   },

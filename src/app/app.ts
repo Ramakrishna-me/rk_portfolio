@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { BackgroundComponent } from './shared/background/background';
+import { Background } from './shared/background/background';
 import { Navbar } from './shared/navbar/navbar';
 
 @Component({

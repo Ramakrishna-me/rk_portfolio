@@ -5,18 +5,21 @@
   border-radius: 50%;
   animation: floatImg 3s ease-in-out infinite;
 }
+
 .hero-section .profile-img:hover {
   transform: rotateY(15deg) scale(1.9);
 }
+
 @keyframes floatImg {
   0%,
   100% {
     transform: translateY(0);
   }
   .50% {
-    transform: translateY(-10px);
+    transform: translateY(-20px);
   }
 }
+
 .hero-section h1,
 .hero-section h3,
 .hero-section p,
@@ -27,18 +30,23 @@
   animation-timeline: view();
   animation-range: entry 0% cover 30%;
 }
+
 .hero-section h1 {
   animation-delay: 0.1s;
 }
+
 .hero-section h3 {
   animation-delay: 0.2s;
 }
+
 .hero-section p {
   animation-delay: 0.3s;
 }
+
 .hero-section .btn {
   animation-delay: 0.45s;
 }
+
 @keyframes fadeSlideUp {
   from {
     opacity: 0;
@@ -50,11 +58,23 @@
   }
 }
 
+//
+//
+//
+//
+//
 /* SKILLS */
 .skills-section {
   overflow: hidden;
   position: relative;
 }
+
+#skills h2 {
+  background: linear-gradient(90deg, #ff007f, #7a5cff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
 .skills-slider {
   white-space: nowrap;
   overflow: hidden;
@@ -75,13 +95,16 @@
   backdrop-filter: blur(5px);
   transition: 0.3s;
 }
+
 .skill-box:hover {
   transform: translateY(-5px);
 }
+
 .skill-icon {
   width: 32px;
   height: 32px;
 }
+
 @keyframes scroll {
   0% {
     transform: translateX(0);
@@ -91,12 +114,24 @@
   }
 }
 
+//
+//
+//
+//
+//
 /* SERVICES */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 28px;
 }
+
+#services h2 {
+  background: linear-gradient(90deg, #ff007f, #7a5cff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
 .service-card {
   position: relative;
   height: 200px;
@@ -136,8 +171,8 @@
 //
 //
 //
+// JOURNEY SECTION
 
-/* 🌈 JOURNEY SECTION – MODERN TIMELINE DESIGN */
 #journey {
   // background: #f8f9fc7b !important;
   overflow: hidden;
@@ -150,20 +185,18 @@
   color: transparent;
 }
 
-/* TIMELINE */
 .timeline {
   position: relative;
   margin: 2rem 0;
   padding: 1rem 0;
 }
 
-/* Central Line */
 .timeline::before {
   content: '';
   position: absolute;
   top: 0;
   left: 50%;
-  width: 4px;
+  width: 5px;
   height: 100%;
   background: linear-gradient(180deg, #ff007f, #7a5cff);
   transform: translateX(-50%);
@@ -171,25 +204,23 @@
   opacity: 5;
 }
 
-/* Timeline Item */
 .timeline-item {
   position: relative;
   width: 50%;
-  padding: 2rem 3rem;
+  padding: 2rem 1rem;
   animation: fadeInUp 1s ease both;
 }
 
 .timeline-item.left {
-  left: 0;
+  left: 9%;
   text-align: right;
 }
 
 .timeline-item.right {
-  left: 50%;
+  left: 51%;
   text-align: left;
 }
 
-/* Content Box */
 .timeline-content {
   position: relative;
   background: #ffffff;
@@ -200,11 +231,10 @@
 }
 
 .timeline-content:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.15);
+  transform: translateY(-10px);
+  box-shadow: 0 14px 35px #000000c8;
 }
 
-/* Icon Circle */
 .icon-box {
   position: absolute;
   top: -25px;
@@ -230,7 +260,7 @@
 @keyframes fadeInUp {
   0% {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(70px);
   }
   100% {
     opacity: 1;
@@ -269,11 +299,24 @@
   }
 }
 
+//
+//
+//
+//
+//
+//
 .summary-section {
   text-align: center;
   border-radius: 20px;
   margin-top: 10px;
 }
+
+#summary h2 {
+  background: linear-gradient(90deg, #ff007f, #7a5cff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
 .summary-section p {
   opacity: 0;
   transform: translateY(20px);
@@ -293,6 +336,13 @@
   border-radius: 20px;
   margin-top: 10px;
 }
+
+#experience h2 {
+  background: linear-gradient(90deg, #ff007f, #7a5cff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
 .exp-card {
   background: #fefefe;
   transition: all 0.3s ease;
@@ -321,6 +371,13 @@
   border-radius: 20px;
   margin-top: 10px;
 }
+
+#stats h2 {
+  background: linear-gradient(90deg, #ff007f, #7a5cff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
 .stat-card {
   background: #ffffff;
   color: #000000;
@@ -346,6 +403,13 @@
   border-radius: 20px;
   margin-top: 10px;
 }
+
+#philosophy h2 {
+  background: linear-gradient(90deg, #ff007f, #7a5cff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
 .philo-card {
   background: #ffffff;
   transition: all 0.4s ease;

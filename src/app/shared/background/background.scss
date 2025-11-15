@@ -1,13 +1,156 @@
-.bg-canvas {
+:host {
   position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  display: block;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.gradient-background {
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-  display: block;
-  background: transparent;
-  pointer-events: none; /* let clicks pass through */
-  image-rendering: pixelated;
-  transform: translateZ(0); /* enable GPU acceleration */
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+/* Gradient spheres */
+.gradient-sphere {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  will-change: transform;
+}
+
+.sphere-1 {
+  width: 40vw;
+  height: 40vw;
+  background: linear-gradient(20deg, #ff0080bb, #00fbff8a);
+  top: -10%;
+  left: -10%;
+  animation: float-1 15s ease-in-out infinite alternate;
+}
+
+.sphere-2 {
+  width: 45vw;
+  height: 45vw;
+  background: linear-gradient(280deg, #00fbff8a, #ea00ffb8);
+  bottom: -20%;
+  right: -10%;
+  animation: float-2 18s ease-in-out infinite alternate;
+}
+
+.sphere-3 {
+  width: 30vw;
+  height: 30vw;
+  background: linear-gradient(120deg, #8800fff9, #00c8ff);
+  top: 60%;
+  left: 30%;
+  animation: float-3 20s ease-in-out infinite alternate;
+}
+
+/* grid, glow, noise */
+.grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.156) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.156) 1px, transparent 1px);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.glow {
+  position: absolute;
+  width: 40vw;
+  height: 40vh;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  animation: pulse 8s infinite alternate;
+  filter: blur(30px);
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  100% {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+.noise-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.05;
+  z-index: 5;
+  // background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* particle styles */
+.particles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  background: linear-gradient(40deg, #0004ffb3, #ff00ff);
+  border-radius: 80%;
+  opacity: 0;
+  pointer-events: none;
+  will-change: left, top, opacity;
+}
+
+/* float keyframes */
+@keyframes float-1 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(10%, 10%) scale(1.1);
+  }
+}
+@keyframes float-2 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(-10%, -5%) scale(1.15);
+  }
+}
+@keyframes float-3 {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translate(-5%, 10%) scale(1.05);
+    opacity: 0.6;
+  }
 }

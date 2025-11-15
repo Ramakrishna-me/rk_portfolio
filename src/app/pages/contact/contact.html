@@ -1,24 +1,58 @@
-<section class="contact-wrapper reveal">
-    <h2 class="title">Contact Us</h2>
+<section class="contact-wrapper">
+    <h2 class="title">Get In Touch</h2>
 
-    <div class="contact-container">
-        <!-- Left Info -->
-        <div class="info-box">
-            <p><strong>Phone:</strong><i></i> +91 8300332683</p>
-            <p><strong>Email:</strong> krama4033@gmail.com.com</p>
-            <p><strong>Address:</strong> Chennai, India</p>
+    <div class="contact-grid">
+
+        <!-- Left Contact Card -->
+        <div class="contact-card">
+            <h3>Contact Info</h3>
+
+            <div class="info-item">
+                <span class="icon">📞</span>
+                <p>+91 8300332683</p>
+            </div>
+
+            <div class="info-item">
+                <span class="icon">📧</span>
+                <p>krama4033@gmail.com</p>
+            </div>
+
+            <div class="info-item">
+                <span class="icon">📍</span>
+                <p>Chennai, India</p>
+            </div>
+
+            <div class="glow-ring"></div>
         </div>
 
-        <!-- Right Form (unchanged structure) -->
-        <form class="contact-form" (submit)="sendEmail($event)">
-            <input type="text" name="user_name" placeholder="Name">
-            <input type="email" name="user_email" placeholder="Email">
-            <textarea name="message" placeholder="Message"></textarea>
-            <input type="submit" value="Submit" class="submit-btn">
+        <!-- Right Form -->
+        <form class="contact-form" (submit)="sendEmail($event)" #contactForm>
+            <div class="floating-field">
+                <input type="text" name="user_name" required placeholder=" ">
+                <label>Name</label>
+            </div>
+
+            <div class="floating-field">
+                <input type="email" name="user_email" required placeholder=" ">
+                <label>Email</label>
+            </div>
+
+            <div class="floating-field">
+                <textarea name="message" required placeholder=" "></textarea>
+                <label>Message</label>
+            </div>
+
+            <button type="submit" class="submit-btn">Send Message</button>
         </form>
+
     </div>
 
-    <!-- Skyline BG -->
-    <div class="skyline"></div>
-    <div class="hide_text">I'm Available</div>
+    <!-- Success Popup -->
+    <div class="popup" *ngIf="showPopup">
+        <div class="popup-box">
+            <h3>Message Sent ✔</h3>
+            <p>Thanks for contacting me, I’ll respond soon.</p>
+        </div>
+    </div>
+
 </section>

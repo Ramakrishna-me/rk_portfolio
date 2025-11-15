@@ -1,119 +1,165 @@
-import { Component, ElementRef, AfterViewInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  AfterViewInit,
+  OnDestroy,
+  ViewChild,
+  Renderer2,
+} from '@angular/core';
 
 @Component({
   selector: 'app-background',
-  standalone: false,
-  template: `<canvas #canvas id="c" class="bg-canvas"></canvas>`,
+  templateUrl: './background.html',
   styleUrls: ['./background.scss'],
+  standalone: false,
 })
-export class BackgroundComponent implements AfterViewInit {
-  @ViewChild('canvas') canvasRef!: ElementRef<HTMLCanvasElement>;
-  private ctx!: CanvasRenderingContext2D;
-  private cW = 0;
-  private cH = 0;
-  private particles: Particle[] = [];
-  private colors = ['#00ffff', '#ff00ff', '#00ff80', '#ffaa00', '#007bff'];
+export class Background implements AfterViewInit, OnDestroy {
+  @ViewChild('particlesContainer', { static: true })
+  particlesContainerRef!: ElementRef<HTMLDivElement>;
+  @ViewChild('root', { static: true }) rootRef!: ElementRef<HTMLDivElement>;
 
-  ngAfterViewInit() {
-    this.initCanvas();
-    window.addEventListener('resize', () => this.resizeCanvas());
-    requestAnimationFrame(() => this.animate());
+  private particleCount = 80;
+  private timeouts = new Set<number>();
+  private mouseListener?: (e: MouseEvent) => void;
+  private createdParticles: HTMLElement[] = [];
+  private autoCreatedParticles: HTMLElement[] = [];
+
+  constructor(private renderer: Renderer2) {}
+
+  ngAfterViewInit(): void {
+    // Create initial particles
+    for (let i = 0; i < this.particleCount; i++) {
+      this.createParticle(/*auto=*/ true);
+    }
+
+    // Mouse interaction
+    this.mouseListener = (e: MouseEvent) => this.onMouseMove(e);
+    window.addEventListener('mousemove', this.mouseListener);
   }
 
-  /** Initialize canvas and particles */
-  private initCanvas() {
-    const canvas = this.canvasRef.nativeElement;
-    this.ctx = canvas.getContext('2d')!;
-    this.resizeCanvas();
-    this.createParticles();
+  ngOnDestroy(): void {
+    // clear timeouts
+    this.timeouts.forEach((id) => clearTimeout(id));
+    this.timeouts.clear();
+
+    if (this.mouseListener) {
+      window.removeEventListener('mousemove', this.mouseListener);
+    }
+
+    // remove any leftover particles
+    this.createdParticles.forEach((p) => p.remove());
+    this.autoCreatedParticles.forEach((p) => p.remove());
   }
 
-  /** Create glowing floating particles */
-  private createParticles() {
-    this.particles = [];
-    const count = 80;
-    for (let i = 0; i < count; i++) {
-      const color = this.colors[Math.floor(Math.random() * this.colors.length)];
-      this.particles.push(
-        new Particle(
-          Math.random() * this.cW,
-          Math.random() * this.cH,
-          (Math.random() - 0.5) * 0.6,
-          (Math.random() - 0.5) * 0.6,
-          color
-        )
-      );
+  private createParticle(auto = false) {
+    const container = this.particlesContainerRef.nativeElement;
+    const particle = this.renderer.createElement('div') as HTMLDivElement;
+    this.renderer.addClass(particle, 'particle');
+
+    const size = Math.random() * 3 + 1; // small
+    particle.style.width = `${size}px`;
+    particle.style.height = `${size}px`;
+
+    container.appendChild(particle);
+
+    if (auto) {
+      this.autoCreatedParticles.push(particle);
+      this.animateParticle(particle);
+    } else {
+      this.createdParticles.push(particle);
+      // schedule removal for mouse-created particles after animation
+      const removeTimeout = window.setTimeout(() => {
+        particle.remove();
+        this.createdParticles = this.createdParticles.filter((p) => p !== particle);
+      }, 2200); // matches 2s animation
+      this.timeouts.add(removeTimeout);
     }
   }
 
-  /** Handle responsive resize */
-  private resizeCanvas() {
-    const canvas = this.canvasRef.nativeElement;
-    const dpr = window.devicePixelRatio || 1;
-    this.cW = window.innerWidth;
-    this.cH = window.innerHeight;
-    canvas.width = this.cW * dpr;
-    canvas.height = this.cH * dpr;
-    this.ctx.setTransform(1, 0, 0, 1, 0, 0);
-    this.ctx.scale(dpr, dpr);
+  private resetParticle(particle: HTMLElement) {
+    const posX = Math.random() * 100;
+    const posY = Math.random() * 100;
+    particle.style.left = `${posX}%`;
+    particle.style.top = `${posY}%`;
+    particle.style.opacity = '0';
+    return { x: posX, y: posY };
   }
 
-  /** Main animation loop */
-  private animate() {
-    this.ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
-    this.ctx.fillRect(0, 0, this.cW, this.cH);
+  private animateParticle(particle: HTMLElement) {
+    const pos = this.resetParticle(particle);
 
-    // Draw particle network
-    for (let i = 0; i < this.particles.length; i++) {
-      const p1 = this.particles[i];
-      p1.update(this.cW, this.cH);
+    const duration = Math.random() * 10 + 10; // seconds
+    const delay = Math.random() * 5 * 1000; // ms
 
-      for (let j = i + 1; j < this.particles.length; j++) {
-        const p2 = this.particles[j];
-        const dist = Math.hypot(p1.x - p2.x, p1.y - p2.y);
-        if (dist < 150) {
-          this.ctx.strokeStyle = `${p1.color}33`;
-          this.ctx.lineWidth = 0.6;
-          this.ctx.beginPath();
-          this.ctx.moveTo(p1.x, p1.y);
-          this.ctx.lineTo(p2.x, p2.y);
-          this.ctx.stroke();
-        }
-      }
+    const startTimeout = window.setTimeout(() => {
+      // set transition and move
+      particle.style.transition = `all ${duration}s linear`;
+      particle.style.opacity = (Math.random() * 0.3 + 0.1).toString();
 
-      p1.draw(this.ctx);
-    }
+      const moveX = pos.x + (Math.random() * 20 - 10);
+      const moveY = pos.y - Math.random() * 30;
 
-    requestAnimationFrame(() => this.animate());
-  }
-}
+      particle.style.left = `${moveX}%`;
+      particle.style.top = `${moveY}%`;
 
-/** 🌌 Floating particle node */
-class Particle {
-  constructor(
-    public x: number,
-    public y: number,
-    public vx: number,
-    public vy: number,
-    public color: string
-  ) {}
+      // after animation ends, schedule next animateParticle for this element
+      const afterTimeout = window.setTimeout(() => {
+        // remove inline transition to allow reset without visible jump
+        particle.style.transition = '';
+        this.animateParticle(particle);
+      }, duration * 1000);
 
-  update(cW: number, cH: number) {
-    this.x += this.vx;
-    this.y += this.vy;
+      this.timeouts.add(afterTimeout);
+    }, delay);
 
-    if (this.x < 0 || this.x > cW) this.vx *= -1;
-    if (this.y < 0 || this.y > cH) this.vy *= -1;
+    this.timeouts.add(startTimeout);
   }
 
-  draw(ctx: CanvasRenderingContext2D) {
-    const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, 5);
-    gradient.addColorStop(0, this.color);
-    gradient.addColorStop(1, 'transparent');
+  private onMouseMove(e: MouseEvent) {
+    // spawn a small particle at mouse location
+    const rect = document.documentElement.getBoundingClientRect();
+    const mouseX = (e.clientX / window.innerWidth) * 100;
+    const mouseY = (e.clientY / window.innerHeight) * 100;
 
-    ctx.beginPath();
-    ctx.fillStyle = gradient;
-    ctx.arc(this.x, this.y, 2.5, 0, Math.PI * 2);
-    ctx.fill();
+    const particle = this.renderer.createElement('div') as HTMLDivElement;
+    this.renderer.addClass(particle, 'particle');
+    const size = Math.random() * 4 + 2;
+    particle.style.width = `${size}px`;
+    particle.style.height = `${size}px`;
+    particle.style.left = `${mouseX}%`;
+    particle.style.top = `${mouseY}%`;
+    particle.style.opacity = '0.6';
+
+    this.particlesContainerRef.nativeElement.appendChild(particle);
+    this.createdParticles.push(particle);
+
+    // animate outward then remove
+    // minimal timeout to ensure style applied
+    const t1 = window.setTimeout(() => {
+      particle.style.transition = 'all 2s ease-out';
+      particle.style.left = `${mouseX + (Math.random() * 10 - 5)}%`;
+      particle.style.top = `${mouseY + (Math.random() * 10 - 5)}%`;
+      particle.style.opacity = '0';
+    }, 10);
+    this.timeouts.add(t1);
+
+    const t2 = window.setTimeout(() => {
+      particle.remove();
+      this.createdParticles = this.createdParticles.filter((p) => p !== particle);
+    }, 2010);
+    this.timeouts.add(t2);
+
+    // subtle movement of gradient spheres
+    const spheres = this.rootRef.nativeElement.querySelectorAll(
+      '.gradient-sphere'
+    ) as NodeListOf<HTMLElement>;
+    const moveX = (e.clientX / window.innerWidth - 0.5) * 5; // px
+    const moveY = (e.clientY / window.innerHeight - 0.5) * 5; // px
+
+    spheres.forEach((sphere) => {
+      // get existing computed transform, but we override to simple translate
+      // keep scale/animation by applying translate only (note: this will replace transform used by keyframes)
+      sphere.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    });
   }
 }

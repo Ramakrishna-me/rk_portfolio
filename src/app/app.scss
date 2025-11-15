@@ -1,17 +1,17 @@
 .main-wrapper {
   position: relative;
   z-index: 1;
-  // padding: 40px;
+  padding: 40px;
   color: #ffffff;
 }
 
 .custom-glass-card {
   position: sticky;
-  margin-top: 75px;
-  background: #ffffff0b;
-  backdrop-filter: blur(2px);
-  border: 1px solid #fafafa60;
+  margin-top: 40px;
+  background: #ffffff00;
+  backdrop-filter: blur(0px);
+  border: 1px solid #fafafa00;
   border-radius: 10px;
-  padding: 10px;
+  padding: 20px;
   height: 100%;
 }
