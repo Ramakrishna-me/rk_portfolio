@@ -17,7 +17,7 @@ export class Contact implements AfterViewInit {
     const form = e.target as HTMLFormElement;
 
     emailjs
-      .sendForm('service_d31nzh5', 'template_yhk86km', form, {
+      .sendForm('service_d31nzh5', 'template_8xcnxxp', form, {
         publicKey: '-T8USfE56nZ-yG7E7',
       })
       .then(
