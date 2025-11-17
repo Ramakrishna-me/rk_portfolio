@@ -1,36 +1,108 @@
-<section class="about-section">
+<section class="about-modern py-5">
 
-    <div class="about-container">
+    <div class="container">
 
-        <!-- LEFT IMAGE WITH SHINE EFFECT -->
-        <div class="about-left shine-wrap">
-            <img src="assets/2.jpg" class="about-img shine" />
-        </div>
+        <div class="row g-5 align-items-start">
 
-        <!-- RIGHT CONTENT -->
-        <div class="about-right">
+            <!-- LEFT PROFILE CARD -->
+            <div class="col-12 col-md-4">
+                <div class="profile-card glass-card">
+                    <div class="img-wrap">
+                        <img src="assets/2.jpg" class="img-fluid profile-img" />
+                    </div>
 
-            <h1 class="title">ABOUT ME</h1>
+                    <h2 class="profile-name">{{ name }}</h2>
+                    <p class="profile-role">{{ role }}</p>
 
-            <h3 class="subtitle">{{ name }} – {{ role }}</h3>
+                    <!-- Feature Chips -->
+                    <div class="feature-chip-wrap">
+                        <span class="chip">UI Expert</span>
+                        <span class="chip">Creative</span>
+                        <span class="chip">Responsive</span>
+                        <span class="chip">Clean Coder</span>
+                    </div>
+                </div>
+            </div>
 
-            <p class="bio">
-                {{ bio }}
-            </p>
+            <div class="col-12 col-md-8 about-right">
 
-            <!-- Extra Details -->
-            <ul class="about-list">
-                <li *ngFor="let point of aboutPoints">
-                    <i class="fa-solid fa-check"></i> {{ point }}
-                </li>
-            </ul>
+                <h1 class="about-title">About Me</h1>
 
-            <!-- Social Icons -->
-            <div class="social-row">
-                <a *ngFor="let item of social" [href]="item.link"
-                    target="_blank">
-                    <i [class]="item.icon"></i>
-                </a>
+                <p class="about-desc">
+                    I’m a frontend engineer & creative designer who loves
+                    building beautiful,
+                    functional and human-centered digital experiences. My
+                    approach blends
+                    modern UI engineering with strong visual thinking — helping
+                    brands and
+                    teams bring ideas to life with clarity, interaction and
+                    purpose.
+                </p>
+
+                <!-- INTRO HIGHLIGHTS -->
+                <div class="info-card">
+                    <h5><i class="bi bi-stars"></i> What I’m Great At</h5>
+                    <ul>
+                        <li>Pixel-perfect UI & component-driven development</li>
+                        <li>Clean architecture & reusable front-end systems</li>
+                        <li>Mobile-first layouts with smooth UX flows</li>
+                        <li>Visual storytelling using color, spacing &
+                            motion</li>
+                    </ul>
+                </div>
+
+                <!-- SKILL INDICATORS -->
+                <h4 class="section-title">Core Strengths</h4>
+                <div class="strength-bar">
+                    <span>UI / UX Thinking</span>
+                    <div class="bar"><div style="width: 95%"></div></div>
+                </div>
+
+                <div class="strength-bar">
+                    <span>Frontend Engineering (Angular)</span>
+                    <div class="bar"><div style="width: 92%"></div></div>
+                </div>
+
+                <div class="strength-bar">
+                    <span>Visual Design & Branding</span>
+                    <div class="bar"><div style="width: 90%"></div></div>
+                </div>
+
+                <div class="strength-bar">
+                    <span>Micro-interactions & Motion Design</span>
+                    <div class="bar"><div style="width: 87%"></div></div>
+                </div>
+
+                <!-- TIMELINE BLOCK -->
+                <h4 class="section-title mt-4">Journey Snapshot</h4>
+
+                <div class="timeline-box">
+                    <div class="tl-item">
+                        <span class="dot"></span>
+                        <p>3+ years crafting user interfaces with modern
+                            frameworks</p>
+                    </div>
+
+                    <div class="tl-item">
+                        <span class="dot"></span>
+                        <p>Designed 100+ creative visuals & brand concepts</p>
+                    </div>
+
+                    <div class="tl-item">
+                        <span class="dot"></span>
+                        <p>Delivered UI systems with optimized UX and
+                            performance</p>
+                    </div>
+                </div>
+
+                <!-- SOCIAL -->
+                <div class="social-icons mt-4">
+                    <a *ngFor="let item of social" [href]="item.link"
+                        target="_blank">
+                        <i [class]="item.icon"></i>
+                    </a>
+                </div>
+
             </div>
 
         </div>

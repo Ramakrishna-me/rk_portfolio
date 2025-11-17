@@ -5,7 +5,7 @@
   width: 100%;
   padding: 50px 4%;
   position: relative;
-  background: #00000080; /* black with transparency */
+  background: #00000080;
   backdrop-filter: blur(25px);
   border-radius: 14px;
   overflow: hidden;
@@ -23,46 +23,52 @@
   margin-bottom: 50px;
   letter-spacing: 1.5px;
   text-shadow: 0 0 12px #ffffff40;
+
+  @media (max-width: 576px) {
+    font-size: 34px;
+  }
 }
 
 /* ================================
-   GRID LAYOUT
+   GRID LAYOUT (Bootstrap handles layout)
 ================================ */
 .contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-
-  @media (max-width: 900px) {
-    grid-template-columns: 1fr;
-  }
+  display: block !important; /* bootstrap controls the columns */
 }
 
 /* ================================
    LEFT CARD (GLASS PANEL)
 ================================ */
 .contact-card {
-  background: #0000008c; /* light black glass */
+  background: #0000008c;
   border-radius: 20px;
   padding: 40px;
   color: #ffffff;
+  height: 100%;
 
   backdrop-filter: blur(30px) saturate(140%);
   border: 1px solid #ffffff2e;
 
   box-shadow: 0 4px 26px #ffffff0d, 0 0 35px #ffffff08;
-
   transition: border 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     border-color: #b4dcff88;
     box-shadow: 0 0 22px #b4dcff66;
   }
+
+  @media (max-width: 576px) {
+    padding: 28px;
+  }
 }
 
 .contact-card h3 {
   font-size: 26px;
   margin-bottom: 25px;
+
+  @media (max-width: 576px) {
+    font-size: 22px;
+  }
 }
 
 /* Info items */
@@ -78,6 +84,14 @@
     margin-right: 12px;
     color: #ffffffd0;
   }
+
+  @media (max-width: 576px) {
+    font-size: 17px;
+
+    .icon {
+      font-size: 22px;
+    }
+  }
 }
 
 /* ================================
@@ -88,17 +102,21 @@
   padding: 40px;
   border-radius: 20px;
   color: #ffffff;
+  height: 100%;
 
   backdrop-filter: blur(30px) saturate(140%);
   border: 1px solid #ffffff2e;
 
   box-shadow: 0 4px 26px #ffffff0d, 0 0 35px #ffffff08;
-
   transition: border 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     border-color: #82c8ff88;
     box-shadow: 0 0 22px #82c8ff66;
+  }
+
+  @media (max-width: 576px) {
+    padding: 28px;
   }
 }
 
@@ -113,16 +131,17 @@
   textarea {
     width: 100%;
     padding: 14px 16px;
-
     background: transparent;
     border: none;
     border-bottom: 2px solid #ffffff59;
-
     color: #ffffff;
     font-size: 16px;
-
     outline: none;
     transition: 0.35s ease;
+
+    @media (max-width: 576px) {
+      font-size: 15px;
+    }
   }
 
   textarea {
@@ -130,7 +149,6 @@
     resize: none;
   }
 
-  /* Focus effect */
   input:focus,
   textarea:focus {
     border-bottom-color: #8cd2ffff;
@@ -142,12 +160,14 @@
     position: absolute;
     left: 16px;
     top: 14px;
-
     font-size: 16px;
     color: #ffffff90;
     pointer-events: none;
-
     transition: 0.3s ease;
+
+    @media (max-width: 576px) {
+      font-size: 14px;
+    }
   }
 
   input:focus + label,
@@ -168,16 +188,12 @@
   padding: 12px 24px;
   border: none;
   border-radius: 50px;
-
   background: #ffffff1f;
   backdrop-filter: blur(10px);
-
   border: 1px solid #ffffff3f;
   color: #ffffff;
-
   font-size: 16px;
   cursor: pointer;
-
   transition: 0.3s ease;
   box-shadow: 0 0 18px #ffffff1f;
 
@@ -185,6 +201,10 @@
     transform: translateY(-3px);
     box-shadow: 0 0 25px #a0dcff66;
     background: #ffffff33;
+  }
+
+  @media (max-width: 576px) {
+    width: 100%;
   }
 }
 
@@ -206,23 +226,27 @@
   background: #ffffff1a;
   padding: 35px 45px;
   border-radius: 18px;
-
   border: 1px solid #ffffff3f;
   backdrop-filter: blur(20px);
-
   text-align: center;
   box-shadow: 0 0 30px #ffffff14, 0 0 25px #a0dcff59;
-
   animation: popupScale 0.3s ease;
 
   h3 {
     font-size: 26px;
     color: #ffffff;
-    margin-bottom: 10px;
   }
 
   p {
     color: #dddddd;
+  }
+
+  @media (max-width: 576px) {
+    padding: 25px 30px;
+
+    h3 {
+      font-size: 22px;
+    }
   }
 }
 

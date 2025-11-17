@@ -1,49 +1,57 @@
-<section class="contact-wrapper">
+<section class="contact-wrapper container py-5">
+
     <h2 class="title">Get In Touch</h2>
 
-    <div class="contact-grid">
+    <div class="row g-4 justify-content-center">
 
-        <!-- Left Contact Card -->
-        <div class="contact-card">
-            <h3>Contact Info</h3>
+        <!-- LEFT CONTACT CARD -->
+        <div class="col-12 col-md-5">
+            <div class="contact-card h-100">
+                <h3>Contact Info</h3>
 
-            <div class="info-item">
-                <span class="icon">📞</span>
-                <p>+91 8300332683</p>
+                <div class="info-item">
+                    <span class="icon">📞</span>
+                    <p>+91 8300332683</p>
+                </div>
+
+                <div class="info-item">
+                    <span class="icon">📧</span>
+                    <p>krama4033@gmail.com</p>
+                </div>
+
+                <div class="info-item">
+                    <span class="icon">📍</span>
+                    <p>Chennai, India</p>
+                </div>
             </div>
-
-            <div class="info-item">
-                <span class="icon">📧</span>
-                <p>krama4033@gmail.com</p>
-            </div>
-
-            <div class="info-item">
-                <span class="icon">📍</span>
-                <p>Chennai, India</p>
-            </div>
-
-            <div class="glow-ring"></div>
         </div>
 
-        <!-- Right Form -->
-        <form class="contact-form" (submit)="sendEmail($event)" #contactForm>
-            <div class="floating-field">
-                <input type="text" name="user_name" required placeholder=" ">
-                <label>Name</label>
-            </div>
+        <!-- RIGHT FORM -->
+        <div class="col-12 col-md-7">
+            <form class="contact-form h-100" (submit)="sendEmail($event)"
+                #contactForm>
 
-            <div class="floating-field">
-                <input type="email" name="user_email" required placeholder=" ">
-                <label>Email</label>
-            </div>
+                <!-- <div class="floating-field">
+                    <input type="text" name="user_name" required
+                        placeholder=" ">
+                    <label>Name</label>
+                </div>
 
-            <div class="floating-field">
-                <textarea name="message" required placeholder=" "></textarea>
-                <label>Message</label>
-            </div>
+                <div class="floating-field">
+                    <input type="email" name="user_email" required
+                        placeholder=" ">
+                    <label>Email</label>
+                </div> -->
 
-            <button type="submit" class="submit-btn">Send Message</button>
-        </form>
+                <div class="floating-field">
+                    <textarea name="message" required
+                        placeholder=" "></textarea>
+                    <label>Give me the secret handshake! 😉</label>
+                </div>
+
+                <button type="submit" class="submit-btn">Drop it</button>
+            </form>
+        </div>
 
     </div>
 

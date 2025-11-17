@@ -4,6 +4,7 @@
   height: 760px;
   border-radius: 50%;
   animation: floatImg 3s ease-in-out infinite;
+  object-fit: cover;
 }
 
 .hero-section .profile-img:hover {
@@ -15,7 +16,7 @@
   100% {
     transform: translateY(0);
   }
-  .50% {
+  50% {
     transform: translateY(-20px);
   }
 }
@@ -34,15 +35,12 @@
 .hero-section h1 {
   animation-delay: 0.1s;
 }
-
 .hero-section h3 {
   animation-delay: 0.2s;
 }
-
 .hero-section p {
   animation-delay: 0.3s;
 }
-
 .hero-section .btn {
   animation-delay: 0.45s;
 }
@@ -58,11 +56,33 @@
   }
 }
 
-//
-//
-//
-//
-//
+/* MOBILE HERO FIXES */
+@media (max-width: 768px) {
+  .hero-section .profile-img {
+    width: 240px;
+    height: 240px;
+    animation: none;
+    transform: none;
+  }
+
+  .hero-section .profile-img:hover {
+    transform: none;
+  }
+
+  .hero-section h1 {
+    font-size: 2rem !important;
+    line-height: 1.2;
+  }
+
+  .hero-section h3 {
+    font-size: 1.1rem !important;
+  }
+
+  .hero-section p {
+    font-size: 1rem !important;
+  }
+}
+
 /* SKILLS */
 .skills-section {
   overflow: hidden;
@@ -79,11 +99,13 @@
   white-space: nowrap;
   overflow: hidden;
 }
+
 .slider-track {
   display: flex;
   gap: 20px;
   animation: scroll 15s linear infinite;
 }
+
 .skill-box {
   display: flex;
   align-items: center;
@@ -114,11 +136,6 @@
   }
 }
 
-//
-//
-//
-//
-//
 /* SERVICES */
 .services-grid {
   display: grid;
@@ -143,10 +160,12 @@
   transform-style: preserve-3d;
   transition: transform 0.7s ease, box-shadow 0.3s ease;
 }
+
 .service-card:hover {
-  transform: scaley(1.2);
-  box-shadow: 0 8px 30px #0002;
+  transform: scaleY(1.1);
+  box-shadow: 0 8px 30px #0000006d;
 }
+
 .service-card .front,
 .service-card .back {
   position: absolute;
@@ -158,23 +177,34 @@
   backface-visibility: hidden;
   padding: 20px;
 }
+
 .service-card .back {
   transform: rotateY(180deg);
 }
+
 .service-icon {
   width: 42px;
   height: 50px;
 }
 
-//
-//
-//
-//
-//
-// JOURNEY SECTION
+/* MOBILE SERVICES */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr !important;
+  }
 
+  .service-card {
+    height: 180px;
+    transform: none !important;
+  }
+
+  .service-card:hover {
+    transform: none;
+  }
+}
+
+/* JOURNEY SECTION */
 #journey {
-  // background: #f8f9fc7b !important;
   overflow: hidden;
   border-radius: 20px;
 }
@@ -201,7 +231,6 @@
   background: linear-gradient(180deg, #ff007f, #7a5cff);
   transform: translateX(-50%);
   border-radius: 10px;
-  opacity: 5;
 }
 
 .timeline-item {
@@ -212,12 +241,11 @@
 }
 
 .timeline-item.left {
-  left: 9%;
+  left: 5%;
   text-align: right;
 }
-
 .timeline-item.right {
-  left: 51%;
+  left: 49.8%;
   text-align: left;
 }
 
@@ -252,22 +280,11 @@
 }
 
 .timeline-item.right .icon-box {
-  left: auto;
   right: -25px;
+  left: auto;
 }
 
-/* Animation */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(70px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
+/* MOBILE TIMELINE FIX */
 @media (max-width: 767.98px) {
   .timeline::before {
     left: 20px;
@@ -275,13 +292,10 @@
 
   .timeline-item {
     width: 100%;
-    padding-left: 4rem;
+    padding-left: 4rem !important;
     padding-right: 0;
     text-align: left;
-  }
-
-  .timeline-item.right {
-    left: 0;
+    left: 0 !important;
   }
 
   .timeline-content {
@@ -289,22 +303,12 @@
   }
 
   .icon-box {
-    left: -10px;
+    left: -10px !important;
+    right: auto !important;
   }
 }
 
-@media (min-width: 992px) {
-  .timeline-content {
-    max-width: 80%;
-  }
-}
-
-//
-//
-//
-//
-//
-//
+/* SUMMARY SECTION */
 .summary-section {
   text-align: center;
   border-radius: 20px;
@@ -326,11 +330,6 @@
   animation-delay: 0.3s;
 }
 
-//
-//
-//
-//
-
 /* EXPERIENCE */
 .experience-section {
   border-radius: 20px;
@@ -349,24 +348,27 @@
   border: 1px solid rgba(0, 0, 0, 0.05);
   text-align: center;
 }
+
 .exp-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
+
 .exp-icon {
   font-size: 2rem;
   color: #7a5cff;
   margin-bottom: 10px;
 }
 
-//
-//
-//
-//
+/* MOBILE EXPERIENCE */
+@media (max-width: 768px) {
+  .exp-card {
+    padding: 1.2rem !important;
+  }
+}
 
 /* STATS */
 .stats-section {
-  // background-color: #ffffff6b !important;
   color: #000000 !important;
   border-radius: 20px;
   margin-top: 10px;
@@ -386,20 +388,22 @@
   backdrop-filter: blur(6px);
   transition: all 0.4s ease;
 }
+
 .stat-card:hover {
   transform: translateY(-8px) scale(1.05);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
-//
-//
-//
-//
-//
+/* MOBILE STATS */
+@media (max-width: 768px) {
+  .stat-card {
+    padding: 1rem !important;
+  }
+}
 
 /* PHILOSOPHY */
 .philosophy-section {
-  background-color: #ffffff00 !important;
+  background-color: transparent !important;
   border-radius: 20px;
   margin-top: 10px;
 }
@@ -415,25 +419,24 @@
   transition: all 0.4s ease;
   position: relative;
 }
+
 .philo-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
 }
+
 .philo-card i {
   font-size: 2rem;
   color: #ffffff;
   margin-bottom: 50px;
 }
+
 .imagination {
   font-size: 1.1rem;
   font-weight: 500;
   opacity: 0;
   animation: fadeUp 1.5s ease forwards 0.6s;
 }
-
-//
-//
-//
 
 /* ANIMATIONS */
 @keyframes fadeUp {
@@ -446,11 +449,13 @@
     transform: translateY(0);
   }
 }
+
 .fade-up {
   opacity: 0;
   transform: translateY(30px);
   animation: fadeUp 1s forwards;
 }
+
 .fade-up.delay-1 {
   animation-delay: 0.2s;
 }
@@ -467,9 +472,7 @@
   .philo-card {
     text-align: center;
   }
-  .stat-card {
-    padding: 1rem;
-  }
+
   .summary-section p {
     font-size: 1rem;
   }

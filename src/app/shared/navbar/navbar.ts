@@ -18,4 +18,11 @@ export class Navbar {
   openLinkedin() {
     window.open('https://www.linkedin.com/in/ramakrishnan-r7/', '_blank');
   }
+
+  closeMobileNav() {
+    const menu = document.getElementById('navMenu');
+    if (menu && menu.classList.contains('show')) {
+      menu.classList.remove('show');
+    }
+  }
 }

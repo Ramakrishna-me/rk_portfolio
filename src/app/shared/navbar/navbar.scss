@@ -1,153 +1,134 @@
 .glass-nav {
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px) saturate(180%);
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(12px) saturate(180%);
-  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.35);
-  border-radius: 10px;
-  transition: all 0.3s ease;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  height: 58px; /* FIXED HEIGHT */
+  display: flex;
+  align-items: center;
   z-index: 1050;
-  height: 60px;
 
-  .navbar-brand {
-    display: flex;
-    align-items: center;
+  .container-fluid {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 
-    .brand-logo {
-      height: 50px;
-      transition: transform 0.3s ease;
+  /* BRAND */
+  .brand-logo {
+    height: 40px;
+    transform-style: preserve-3d;
+    transition: transform 0.25s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: perspective(800px) rotateX(6deg) rotateY(-7deg) scale(1.08);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    }
+
+    @media (max-width: 576px) {
+      height: 34px;
       &:hover {
-        transform: scale(1.08);
-      }
-
-      @media (max-width: 992px) {
-        height: 40px;
-      }
-
-      @media (max-width: 576px) {
-        height: 34px;
+        transform: scale(1.05); /* softer on mobile */
       }
     }
   }
 
-  /* Toggler */
-  .navbar-toggler {
-    border: none;
-    .navbar-toggler-icon {
-      filter: invert(1);
+  /* TOGGLER */
+  .navbar-toggler-icon {
+    filter: invert(1);
+  }
+
+  /* LINKS */
+  .nav-link {
+    color: #0073ff;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 8px 12px;
+    position: relative;
+    transition: 0.3s;
+
+    &:hover {
+      color: #d000ff;
+    }
+
+    &.active {
+      color: #d000ff;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      width: 0;
+      background: linear-gradient(90deg, #ff45fc, #468ffe);
+      transition: width 0.3s;
+    }
+
+    &:hover::after,
+    &.active::after {
+      width: 100%;
     }
   }
 
-  /* Navbar Links */
-  .navbar-nav {
-    .nav-link {
-      font-weight: 600;
-      color: #0073ff;
-      position: relative;
-      transition: color 0.3s ease;
-      font-size: 17px;
-      text-transform: capitalize;
-
-      &:hover {
-        color: #d000ff;
-      }
-
-      &::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        height: 2px;
-        width: 0;
-        background: linear-gradient(90deg, #ff45fc, #468ffe);
-        border-radius: 2px;
-        transition: width 0.35s ease;
-      }
-
-      &:hover::after,
-      &.active::after {
-        width: 100%;
-      }
-    }
-  }
-
-  /* Social Icons */
+  /* SOCIAL ICONS */
   .icon-section {
     display: flex;
-    gap: 16px;
 
     .icon-item {
+      width: 34px;
+      height: 34px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
-      transition: transform 0.3s ease;
+      transition: 0.3s;
+
       &:hover {
         transform: scale(1.1);
       }
 
-      .icon {
-        width: 36px;
-        height: 36px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(255, 255, 255, 0.12);
-        border-radius: 50%;
-        box-shadow: 0 0 6px rgba(255, 255, 255, 0.08);
-        img {
-          width: 20px;
-          height: 20px;
-        }
+      img {
+        width: 18px;
+        height: 18px;
       }
     }
   }
 
-  /* 📱 RESPONSIVE ADJUSTMENTS */
-  @media (max-width: 991px) {
+  /* 📱 MOBILE FIX */
+  @media (max-width: 992px) {
+    height: auto; /* Allow collapse panel to open */
+
     .navbar-collapse {
       background: rgba(255, 255, 255, 0.05);
+      padding: 12px 0;
       border-radius: 8px;
-      padding: 1rem 0;
-      margin-top: 0.5rem;
-    }
-
-    .navbar-nav {
-      text-align: center;
-      .nav-item {
-        margin: 0.6rem 0;
-      }
-      .nav-link {
-        font-size: 16px;
-      }
-    }
-
-    .icon-section {
-      margin-top: 0.8rem;
-      justify-content: center;
-      gap: 12px;
-    }
-  }
-
-  @media (max-width: 576px) {
-    .navbar-brand {
-      justify-content: center;
-      width: 100%;
-    }
-
-    .navbar-collapse {
-      padding: 0.8rem 0;
+      margin-top: 6px;
     }
 
     .nav-link {
       font-size: 15px;
+      padding: 10px 0;
     }
 
     .icon-section {
+      justify-content: center;
+      margin-top: 10px;
       gap: 10px;
-      .icon {
-        width: 30px;
-        height: 30px;
-        img {
-          width: 16px;
-          height: 16px;
-        }
+    }
+  }
+
+  /* Small phones */
+  @media (max-width: 576px) {
+    .icon-item {
+      width: 30px;
+      height: 30px;
+
+      img {
+        width: 15px;
+        height: 15px;
       }
     }
   }
