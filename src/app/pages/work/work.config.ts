@@ -425,7 +425,7 @@ export const WORK_ITEMS = [
     description: 'This is a E-Commerce Website build with Angular.',
     link: 'https://ramakrishna-me.github.io/e-commerce/',
     category: 'angular',
-    // image: 'assets/Angular_Logo.gif',
+    image: 'assets/Angular_Logo.gif',
   },
   {
     file: 'assets/my_works/angular_todo.png',
@@ -433,7 +433,7 @@ export const WORK_ITEMS = [
     description: '',
     link: 'https://ramakrishna-me.github.io/social/',
     category: 'angular',
-    // image: 'assets/Angular_Logo.gif',
+    image: 'assets/Angular_Logo.gif',
   },
   {
     file: 'assets/my_works/angular_Logo.gif',
@@ -442,7 +442,7 @@ export const WORK_ITEMS = [
       'A modern Angular 20 app to visually build forms with drag-and-drop, validation, and real-time preview.',
     link: 'https://ramakrishna-me.github.io/dynamic_form_builder/',
     category: 'angular',
-    // image: 'assets/Angular_Logo.gif',
+    image: 'assets/Angular_Logo.gif',
   },
   //
   //
