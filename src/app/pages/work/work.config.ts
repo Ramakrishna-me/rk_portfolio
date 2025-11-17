@@ -408,6 +408,8 @@ export const WORK_ITEMS = [
     category: 'design',
   },
 
+  //
+  //
   //  ANGULAR PROJECTS
   {
     file: 'assets/my_works/angular_dashboard.png',
@@ -436,7 +438,8 @@ export const WORK_ITEMS = [
   {
     file: 'assets/my_works/angular_Logo.gif',
     title: 'Dynamic Form Builder',
-    description: '',
+    description:
+      'A modern Angular 20 app to visually build forms with drag-and-drop, validation, and real-time preview.',
     link: 'https://ramakrishna-me.github.io/dynamic_form_builder/',
     category: 'angular',
     // image: 'assets/Angular_Logo.gif',
