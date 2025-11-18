@@ -1,86 +1,79 @@
 <nav class="navbar navbar-expand-lg glass-nav fixed-top">
-    <div class="container-fluid px-2">
+    <div class="container-fluid px-3">
 
         <!-- BRAND -->
         <a class="navbar-brand d-flex align-items-center" routerLink="/"
-            (click)="closeMobileNav()">
-            <img src="assets/logo12-01.png" class="brand-logo" alt="logo">
+            (click)="closeDrawer()">
+            <img src="assets/logo12-01.png" class="brand-logo img-fluid"
+                alt="logo" />
         </a>
 
-        <!-- TOGGLER -->
-        <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navMenu">
-            <span class="navbar-toggler-icon"></span>
+        <!-- MOBILE HAMBURGER -->
+        <button class="mobile-ham d-lg-none" (click)="toggleDrawer()">
+            <span></span>
+            <span></span>
+            <span></span>
         </button>
 
-        <!-- NAV LINKS -->
-        <div class="collapse navbar-collapse" id="navMenu">
-
-            <ul class="navbar-nav mx-auto text-center">
-
-                <li class="nav-item">
-                    <a class="nav-link"
-                        routerLink="/"
+        <!-- DESKTOP LINKS -->
+        <div class="collapse navbar-collapse d-none d-lg-flex" id="navMenu">
+            <ul class="navbar-nav mx-auto text-center gap-lg-3">
+                <li class="nav-item"><a class="nav-link" routerLink="/"
                         routerLinkActive="active"
-                        [routerLinkActiveOptions]="{exact:true}"
-                        (click)="closeMobileNav()">
-                        Home
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link"
-                        routerLink="/about"
-                        routerLinkActive="active"
-                        (click)="closeMobileNav()">
-                        About
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link"
-                        routerLink="/work"
-                        routerLinkActive="active"
-                        (click)="closeMobileNav()">
-                        Work
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link"
-                        routerLink="/contact"
-                        routerLinkActive="active"
-                        (click)="closeMobileNav()">
-                        Contact
-                    </a>
-                </li>
-
+                        [routerLinkActiveOptions]="{exact:true}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/about"
+                        routerLinkActive="active">About</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/work"
+                        routerLinkActive="active">Work</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/contact"
+                        routerLinkActive="active">Contact</a></li>
             </ul>
+        </div>
 
-            <!-- SOCIAL ICONS -->
-            <div class="icon-section d-flex align-items-center gap-2">
-
-                <div class="icon-item"
-                    (click)="openGithub(); closeMobileNav()">
-                    <img src="assets/Icons/github.png" />
-                </div>
-
-                <div class="icon-item"
-                    (click)="openInstagram(); closeMobileNav()">
-                    <img src="assets/Icons/instagram.png" />
-                </div>
-
-                <div class="icon-item"
-                    (click)="openLinkedin(); closeMobileNav()">
-                    <img src="assets/Icons/linkedin.png" />
-                </div>
-
-            </div>
-
+        <!-- DESKTOP SOCIAL ICONS -->
+        <div class="icon-section d-none d-lg-flex align-items-center gap-2">
+            <div class="icon-item" (click)="openGithub()"><img
+                    src="assets/Icons/github.png"></div>
+            <div class="icon-item" (click)="openInstagram()"><img
+                    src="assets/Icons/instagram.png"></div>
+            <div class="icon-item" (click)="openLinkedin()"><img
+                    src="assets/Icons/linkedin.png"></div>
         </div>
 
     </div>
 </nav>
+
+<!-- MOBILE DRAWER OVERLAY -->
+<div class="drawer-overlay" [class.active]="drawerOpen"
+    (click)="closeDrawer()"></div>
+
+<!-- MOBILE DRAWER PANEL -->
+<div class="mobile-drawer" [class.open]="drawerOpen">
+
+    <div class="drawer-header">
+        <img src="assets/logo12-01.png" class="drawer-logo">
+        <button class="drawer-close" (click)="closeDrawer()">×</button>
+    </div>
+
+    <ul class="drawer-links">
+        <li><a routerLink="/" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact:true}"
+                (click)="closeDrawer()">Home</a></li>
+        <li><a routerLink="/about" routerLinkActive="active"
+                (click)="closeDrawer()">About</a></li>
+        <li><a routerLink="/work" routerLinkActive="active"
+                (click)="closeDrawer()">Work</a></li>
+        <li><a routerLink="/contact" routerLinkActive="active"
+                (click)="closeDrawer()">Contact</a></li>
+    </ul>
+
+    <div class="drawer-social">
+        <div class="icon-item" (click)="openGithub(); closeDrawer()"><img
+                src="assets/Icons/github.png"></div>
+        <div class="icon-item" (click)="openInstagram(); closeDrawer()"><img
+                src="assets/Icons/instagram.png"></div>
+        <div class="icon-item" (click)="openLinkedin(); closeDrawer()"><img
+                src="assets/Icons/linkedin.png"></div>
+    </div>
+
+</div>

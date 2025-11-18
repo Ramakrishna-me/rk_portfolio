@@ -18,7 +18,7 @@ export class Background implements AfterViewInit, OnDestroy {
   particlesContainerRef!: ElementRef<HTMLDivElement>;
   @ViewChild('root', { static: true }) rootRef!: ElementRef<HTMLDivElement>;
 
-  private particleCount = 80;
+  private particleCount = 150; // increased
   private timeouts = new Set<number>();
   private mouseListener?: (e: MouseEvent) => void;
   private createdParticles: HTMLElement[] = [];
@@ -27,9 +27,13 @@ export class Background implements AfterViewInit, OnDestroy {
   constructor(private renderer: Renderer2) {}
 
   ngAfterViewInit(): void {
+    // Auto reduce particles for mobile
+    const isMobile = window.innerWidth < 768;
+    this.particleCount = isMobile ? 60 : 150;
+
     // Create initial particles
     for (let i = 0; i < this.particleCount; i++) {
-      this.createParticle(/*auto=*/ true);
+      this.createParticle(true);
     }
 
     // Mouse interaction
@@ -38,7 +42,6 @@ export class Background implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    // clear timeouts
     this.timeouts.forEach((id) => clearTimeout(id));
     this.timeouts.clear();
 
@@ -46,17 +49,17 @@ export class Background implements AfterViewInit, OnDestroy {
       window.removeEventListener('mousemove', this.mouseListener);
     }
 
-    // remove any leftover particles
     this.createdParticles.forEach((p) => p.remove());
     this.autoCreatedParticles.forEach((p) => p.remove());
   }
 
   private createParticle(auto = false) {
     const container = this.particlesContainerRef.nativeElement;
-    const particle = this.renderer.createElement('div') as HTMLDivElement;
+    const particle = this.renderer.createElement('div');
+
     this.renderer.addClass(particle, 'particle');
 
-    const size = Math.random() * 3 + 1; // small
+    const size = Math.random() * 3 + 1;
     particle.style.width = `${size}px`;
     particle.style.height = `${size}px`;
 
@@ -67,11 +70,12 @@ export class Background implements AfterViewInit, OnDestroy {
       this.animateParticle(particle);
     } else {
       this.createdParticles.push(particle);
-      // schedule removal for mouse-created particles after animation
+
       const removeTimeout = window.setTimeout(() => {
         particle.remove();
         this.createdParticles = this.createdParticles.filter((p) => p !== particle);
-      }, 2200); // matches 2s animation
+      }, 2200);
+
       this.timeouts.add(removeTimeout);
     }
   }
@@ -88,11 +92,10 @@ export class Background implements AfterViewInit, OnDestroy {
   private animateParticle(particle: HTMLElement) {
     const pos = this.resetParticle(particle);
 
-    const duration = Math.random() * 10 + 10; // seconds
-    const delay = Math.random() * 5 * 1000; // ms
+    const duration = Math.random() * 10 + 10;
+    const delay = Math.random() * 3000;
 
     const startTimeout = window.setTimeout(() => {
-      // set transition and move
       particle.style.transition = `all ${duration}s linear`;
       particle.style.opacity = (Math.random() * 0.3 + 0.1).toString();
 
@@ -102,9 +105,7 @@ export class Background implements AfterViewInit, OnDestroy {
       particle.style.left = `${moveX}%`;
       particle.style.top = `${moveY}%`;
 
-      // after animation ends, schedule next animateParticle for this element
       const afterTimeout = window.setTimeout(() => {
-        // remove inline transition to allow reset without visible jump
         particle.style.transition = '';
         this.animateParticle(particle);
       }, duration * 1000);
@@ -116,13 +117,13 @@ export class Background implements AfterViewInit, OnDestroy {
   }
 
   private onMouseMove(e: MouseEvent) {
-    // spawn a small particle at mouse location
-    const rect = document.documentElement.getBoundingClientRect();
     const mouseX = (e.clientX / window.innerWidth) * 100;
     const mouseY = (e.clientY / window.innerHeight) * 100;
 
-    const particle = this.renderer.createElement('div') as HTMLDivElement;
+    // create hover particle
+    const particle = this.renderer.createElement('div');
     this.renderer.addClass(particle, 'particle');
+
     const size = Math.random() * 4 + 2;
     particle.style.width = `${size}px`;
     particle.style.height = `${size}px`;
@@ -133,32 +134,31 @@ export class Background implements AfterViewInit, OnDestroy {
     this.particlesContainerRef.nativeElement.appendChild(particle);
     this.createdParticles.push(particle);
 
-    // animate outward then remove
-    // minimal timeout to ensure style applied
     const t1 = window.setTimeout(() => {
       particle.style.transition = 'all 2s ease-out';
       particle.style.left = `${mouseX + (Math.random() * 10 - 5)}%`;
       particle.style.top = `${mouseY + (Math.random() * 10 - 5)}%`;
       particle.style.opacity = '0';
     }, 10);
-    this.timeouts.add(t1);
 
     const t2 = window.setTimeout(() => {
       particle.remove();
       this.createdParticles = this.createdParticles.filter((p) => p !== particle);
     }, 2010);
+
+    this.timeouts.add(t1);
     this.timeouts.add(t2);
 
-    // subtle movement of gradient spheres
+    // Sphere parallax (keeps animation + adds parallax)
     const spheres = this.rootRef.nativeElement.querySelectorAll(
       '.gradient-sphere'
     ) as NodeListOf<HTMLElement>;
-    const moveX = (e.clientX / window.innerWidth - 0.5) * 5; // px
-    const moveY = (e.clientY / window.innerHeight - 0.5) * 5; // px
+
+    const moveX = (e.clientX / window.innerWidth - 0.5) * 10;
+    const moveY = (e.clientY / window.innerHeight - 0.5) * 10;
 
     spheres.forEach((sphere) => {
-      // get existing computed transform, but we override to simple translate
-      // keep scale/animation by applying translate only (note: this will replace transform used by keyframes)
+      sphere.style.transition = 'transform 0.2s ease-out';
       sphere.style.transform = `translate(${moveX}px, ${moveY}px)`;
     });
   }

@@ -7,6 +7,16 @@ import { Component } from '@angular/core';
   styleUrl: './navbar.scss',
 })
 export class Navbar {
+  drawerOpen = false;
+
+  toggleDrawer() {
+    this.drawerOpen = !this.drawerOpen;
+  }
+
+  closeDrawer() {
+    this.drawerOpen = false;
+  }
+
   openGithub() {
     window.open('https://github.com/Ramakrishna-me', '_blank');
   }
@@ -17,12 +27,5 @@ export class Navbar {
 
   openLinkedin() {
     window.open('https://www.linkedin.com/in/ramakrishnan-r7/', '_blank');
-  }
-
-  closeMobileNav() {
-    const menu = document.getElementById('navMenu');
-    if (menu && menu.classList.contains('show')) {
-      menu.classList.remove('show');
-    }
   }
 }

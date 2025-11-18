@@ -16,19 +16,14 @@
   /* BRAND */
   .brand-logo {
     height: 40px;
-    transform-style: preserve-3d;
-    transition: transform 0.25s ease, box-shadow 0.3s ease;
+    transition: 0.3s;
 
     &:hover {
-      transform: perspective(800px) rotateX(6deg) rotateY(-7deg) scale(1.08);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+      transform: scale(0.07);
     }
 
     @media (max-width: 576px) {
       height: 34px;
-      &:hover {
-        transform: scale(1.05); /* softer on mobile */
-      }
     }
   }
 
@@ -130,6 +125,142 @@
         width: 15px;
         height: 15px;
       }
+    }
+  }
+}
+
+//
+//
+//
+//
+//
+/* MAIN NAVBAR (same as yours) */
+.glass-nav {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 6px 0;
+  z-index: 1050;
+}
+
+/* HAMBURGER BUTTON */
+.mobile-ham {
+  width: 32px;
+  height: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  span {
+    display: block;
+    height: 3px;
+    background: linear-gradient(10deg, #ff007f, #7a5cff);
+    border-radius: 4px;
+    transition: 0.3s;
+  }
+}
+
+/* OVERLAY */
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(3px);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+  z-index: 1049;
+
+  &.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* DRAWER PANEL */
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  left: -80%;
+  width: 80%;
+  height: 100vh;
+  background: rgba(30, 30, 30, 0.92);
+  backdrop-filter: blur(25px);
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+  z-index: 1050;
+  padding: 20px;
+  transition: 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  &.open {
+    left: 0;
+  }
+}
+
+/* DRAWER HEADER */
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .drawer-logo {
+    width: 50px;
+  }
+
+  .drawer-close {
+    font-size: 32px;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+  }
+}
+
+/* LINKS */
+.drawer-links {
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+
+  a {
+    display: block;
+    padding: 14px 0;
+    color: #fff;
+    font-size: 20px;
+    letter-spacing: 0.4px;
+    transition: 0.25s;
+
+    &:hover {
+      color: #ff51ff;
+      transform: translateX(5px);
+    }
+  }
+}
+
+/* SOCIAL ICONS */
+.drawer-social {
+  display: flex;
+  gap: 14px;
+  margin-top: 25px;
+
+  .icon-item {
+    width: 42px;
+    height: 42px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 20px;
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: scale(1.1);
     }
   }
 }
