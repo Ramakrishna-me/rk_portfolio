@@ -5,10 +5,11 @@
   border-radius: 50%;
   animation: floatImg 3s ease-in-out infinite;
   object-fit: cover;
+  margin-top: -80px;
 }
 
 .hero-section .profile-img:hover {
-  transform: rotateY(15deg) scale(1.9);
+  transform: rotateY(25deg) scale(1.5);
 }
 
 @keyframes floatImg {
