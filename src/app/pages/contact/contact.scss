@@ -1,85 +1,86 @@
-/* ================================
-   MAIN WRAPPER (PURE GLASS)
-================================ */
+/* ========================================
+   MAIN WRAPPER (FLUID + RESPONSIVE)
+======================================== */
 .contact-wrapper {
   width: 100%;
-  margin-top: -30px !important;
-  height: 515px;
-  padding: 50px 4%;
-  position: relative;
-  background: #0000007f;
+  padding: 30px 2%;
+  background: #00000069;
   backdrop-filter: blur(25px);
   border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 0 40px #ffffff2c;
+  // box-shadow: 0 0 40px #ff0000;
+  animation: emberGlow 2s infinite;
+
+  @keyframes emberGlow {
+    0% {
+      box-shadow: 0 0 33px #001aff;
+    }
+    50% {
+      box-shadow: 0 0 42px #a600ff;
+    }
+    100% {
+      box-shadow: 0 0 62px #ff00f7;
+    }
+  }
 }
 
-/* ================================
+/* ========================================
    TITLE
-================================ */
+======================================== */
 .title {
-  font-size: 48px;
+  font-size: 42px;
   font-weight: 700;
-  // color: #ffffff;
   background: linear-gradient(90deg, #ff007f, #3f13ff);
   -webkit-background-clip: text;
   color: transparent;
+  text-shadow: 0 4px 18px #ffffff39;
   text-align: center;
-  margin-bottom: 20px;
-  margin-top: -25px;
+  margin-bottom: 40px;
   letter-spacing: 1.5px;
-  text-shadow: 0 0 12px #ffffff36;
 
   @media (max-width: 576px) {
-    font-size: 34px;
+    font-size: 30px;
+    margin-bottom: 25px;
   }
 }
 
-.contact-grid {
-  display: block !important; /* bootstrap controls the columns */
-}
-
-/* ================================
-   LEFT CARD (GLASS PANEL)
-================================ */
+/* ========================================
+   CONTACT CARD
+======================================== */
 .contact-card {
-  background: #000000b3;
-  border-radius: 20px;
-  padding: 40px;
+  background: rgba(0, 0, 0, 0.225);
   color: #ffffff;
-  height: 400px;
-
-  backdrop-filter: blur(30px) saturate(140%);
-  border: 1px solid #ffffff61;
-
-  box-shadow: 0 4px 26px #ffffff0d, 0 0 35px #ffffff08;
-  transition: border 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 20px;
+  padding: 35px;
+  width: 100%;
+  backdrop-filter: blur(20px);
+  border: 1px solid #ffffff7e;
+  box-shadow: 0 4px 18px #ffffff26;
+  transition: 0.3s ease;
 
   &:hover {
     border-color: #ffffff;
-    box-shadow: 0 0 22px #000000;
+    box-shadow: 0 0 28px #ffffffb1;
   }
 
   @media (max-width: 576px) {
-    padding: 28px;
+    padding: 25px;
   }
 }
 
 .contact-card h3 {
-  font-size: 26px;
+  font-size: 24px;
   margin-bottom: 25px;
 
   @media (max-width: 576px) {
-    font-size: 22px;
+    font-size: 20px;
   }
 }
 
-/* Info items */
 .info-item {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
-  font-size: 19px;
+  margin-bottom: 18px;
+  font-size: 18px;
   background: linear-gradient(70deg, #3c60ff, #ee00ff);
   -webkit-background-clip: text;
   color: transparent;
@@ -91,46 +92,40 @@
   }
 
   @media (max-width: 576px) {
-    font-size: 17px;
+    font-size: 16px;
 
     .icon {
-      font-size: 22px;
+      font-size: 20px;
     }
   }
 }
 
-/* ================================
-   RIGHT FORM (GLASS PANEL)
-================================ */
+/* ========================================
+   CONTACT FORM
+======================================== */
 .contact-form {
-  background: #000000b3;
-  padding: 25px;
+  background: rgba(0, 0, 0, 0.225);
+  padding: 35px;
   border-radius: 20px;
-  color: #ffffff;
-  height: 100%;
-
-  backdrop-filter: blur(30px) saturate(140%);
-  border: 1px solid #ffffff2e;
-
-  box-shadow: 0 4px 26px #ffffff0d, 0 0 35px #ffffff08;
-  transition: border 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  backdrop-filter: blur(20px);
+  border: 1px solid #ffffff7e;
+  box-shadow: 0 4px 18px #ffffff26;
 
   &:hover {
     border-color: #ffffff;
-    box-shadow: 0 0 22px #000000;
+    box-shadow: 0 0 28px #ffffffb1;
   }
 
   @media (max-width: 576px) {
-    // padding: 28px;
+    padding: 25px 18px;
   }
 }
 
-/* ================================
-   FLOATING FIELDS
-================================ */
+/* FLOATING FIELDS */
 .floating-field {
   position: relative;
-  margin-bottom: 25px;
+  margin-bottom: 22px;
 
   input,
   textarea {
@@ -139,10 +134,10 @@
     background: transparent;
     border: none;
     border-bottom: 2px solid #ffffff59;
-    color: #ffffff;
+    color: #fff;
     font-size: 16px;
     outline: none;
-    transition: 0.35s ease;
+    transition: 0.3s ease;
 
     @media (max-width: 576px) {
       font-size: 15px;
@@ -150,23 +145,21 @@
   }
 
   textarea {
-    height: 100px;
+    height: 110px;
     resize: none;
   }
 
   input:focus,
   textarea:focus {
-    border-bottom-color: #8cd2ffff;
-    box-shadow: 0 4px 14px #8cd2ff59;
+    border-bottom-color: #8cd2ff;
+    box-shadow: 0 4px 14px #8cd2ff55;
   }
 
-  /* Floating Label */
   label {
     position: absolute;
     left: 16px;
     top: 14px;
-    font-size: 16px;
-    color: #ffffff90;
+    color: #ffffff99;
     pointer-events: none;
     transition: 0.3s ease;
 
@@ -179,33 +172,27 @@
   input:not(:placeholder-shown) + label,
   textarea:focus + label,
   textarea:not(:placeholder-shown) + label {
-    top: -13px;
+    top: -12px;
     font-size: 13px;
-    color: #ffffff;
+    color: #fff;
   }
 }
 
-/* ================================
-   SUBMIT BUTTON (GLASS)
-================================ */
+/* SUBMIT BUTTON */
 .submit-btn {
   width: 180px;
   padding: 12px 24px;
-  border: none;
   border-radius: 50px;
-  background: #ffffff1f;
-  backdrop-filter: blur(10px);
-  border: 1px solid #ffffff3f;
-  color: #ffffff;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
   font-size: 16px;
-  cursor: pointer;
   transition: 0.3s ease;
-  box-shadow: 0 0 18px #ffffff1f;
 
   &:hover {
     transform: translateY(-3px);
-    box-shadow: 0 0 25px #a0dcff66;
-    background: #ffffff33;
+    background: rgba(255, 255, 255, 0.28);
+    box-shadow: 0 0 20px #a0dcff88;
   }
 
   @media (max-width: 576px) {
@@ -213,57 +200,27 @@
   }
 }
 
-/* ================================
-   POPUP (GLASS SUCCESS BOX)
-================================ */
+/* POPUP */
 .popup {
   position: fixed;
   inset: 0;
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: fadeIn 0.25s ease;
+  animation: fadeIn 0.3s ease;
   z-index: 999;
 }
 
 .popup-box {
-  background: #ffffff8c;
-  padding: 35px 45px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 30px 40px;
   border-radius: 18px;
-  border: 1px solid #ffffff3f;
-  backdrop-filter: blur(20px);
   text-align: center;
-  box-shadow: 0 0 30px #ffffff14, 0 0 25px #a0dcff59;
-  animation: popupScale 0.3s ease;
-
-  h3 {
-    font-size: 26px;
-    color: #ffffff;
-  }
-
-  p {
-    color: #dddddd;
-  }
+  backdrop-filter: blur(20px);
 
   @media (max-width: 576px) {
-    padding: 25px 30px;
-
-    h3 {
-      font-size: 22px;
-    }
-  }
-}
-
-/* Animations */
-@keyframes popupScale {
-  from {
-    transform: scale(0.55);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
+    padding: 24px;
   }
 }
 
