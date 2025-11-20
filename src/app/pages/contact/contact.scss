@@ -204,7 +204,7 @@
 .popup {
   position: fixed;
   inset: 0;
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(20px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -213,7 +213,7 @@
 }
 
 .popup-box {
-  background: rgba(255, 255, 255, 0.2);
+  background: #ffffff;
   padding: 30px 40px;
   border-radius: 18px;
   text-align: center;

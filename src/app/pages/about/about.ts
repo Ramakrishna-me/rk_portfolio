@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./about.scss'],
 })
 export class About {
-  name = 'RK!';
+  name = 'RAMAKRISHNAN!';
   role = 'Frontend Developer & Graphic Designer';
 
   bio = `
@@ -34,10 +34,15 @@ export class About {
   ];
 
   social = [
-    { icon: 'fa-brands fa-behance', link: '#' },
-    { icon: 'fa-brands fa-dribbble', link: '#' },
-    { icon: 'fa-brands fa-twitter', link: '#' },
-    { icon: 'fa-brands fa-instagram', link: '#' },
-    { icon: 'fa-brands fa-linkedin', link: '#' },
+    { icon: 'bi bi-github', link: 'https://github.com/Ramakrishna-me' },
+    {
+      icon: 'bi bi-instagram',
+      link: 'https://www.instagram.com/krishna7_6_?igsh=MWU5NjlpbXVucm0zMw==',
+    },
+    { icon: 'bi bi-linkedin', link: 'https://www.linkedin.com/in/ramakrishnan-r7/' },
+    {
+      icon: 'bi bi-whatsapp',
+      link: 'https://wa.me/918300332683?text=Hi%20RK!%20I%20want%20to%20contact%20you',
+    },
   ];
 }

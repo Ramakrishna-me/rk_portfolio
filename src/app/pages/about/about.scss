@@ -1,6 +1,6 @@
 .about-modern {
-  // background: linear-gradient(135deg, #f8f4ff, #e9f0ff, #ffe9f5);
-  min-height: 80vh;
+  // background: linear-gradient(135deg, #5d00ff, #c300ff, #00aaff);
+  min-height: 70vh !important;
 }
 
 /* PROFILE CARD */
@@ -30,10 +30,10 @@
 }
 
 .profile-name {
-  margin-top: 10px;
+  margin-top: 15px;
   font-size: 28px;
-  font-weight: 800;
-  color: #0040ff;
+  font-weight: 700;
+  color: #8000ff;
 }
 
 .profile-role {
@@ -69,7 +69,7 @@
 
 /* RIGHT SIDE IMPROVED */
 .about-right {
-  // padding-right: 10px;
+  padding-right: 10px;
 }
 
 /* HEADING */
@@ -169,7 +169,7 @@
 
 .tl-item .dot {
   position: absolute;
-  left: -10px;
+  left: -14px;
   top: 6px;
   width: 10px;
   height: 10px;
@@ -182,18 +182,74 @@
   margin: 0;
   font-size: 15px;
   opacity: 0.9;
+  color: #000000;
+  font-weight: 600;
 }
 
 /* SOCIAL */
-.social-icons i {
-  font-size: 26px;
-  transition: 0.3s;
+.social-icons {
+  display: flex;
+  gap: 20px;
+
+  a {
+    width: 48px;
+    height: 48px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff2d;
+    border: 1px solid #ffffff31;
+    overflow: hidden;
+    position: relative;
+    transition: 0.4s cubic-bezier(0.6, -0.28, 0.74, 0.05);
+
+    i {
+      color: #fff;
+      font-size: 22px;
+      z-index: 2;
+      transition: 0.3s ease;
+    }
+
+    &:hover {
+      border-radius: 30px;
+      transform: scale(1.15);
+    }
+
+    &:hover i {
+      transform: scale(1.2);
+    }
+
+    /* Liquid blob */
+    &:before {
+      content: '';
+      position: absolute;
+      width: 120%;
+      height: 120%;
+      top: 55%;
+      left: 20%;
+      background: linear-gradient(135deg, #4828ff, #f700ff);
+      border-radius: 50%;
+      transition: 0.3s ease;
+      z-index: 1;
+    }
+
+    &:hover:before {
+      top: -20%;
+      left: -10%;
+    }
+  }
 }
 
-.social-icons i:hover {
-  color: #ff0090;
-  transform: scale(1.1);
-}
+// .social-icons i {
+//   font-size: 26px;
+//   transition: 0.3s;
+// }
+
+// .social-icons i:hover {
+//   color: #ff0090;
+//   transform: scale(1.1);
+// }
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
