@@ -9,7 +9,7 @@
 }
 
 .hero-section .profile-img:hover {
-  transform: rotateY(25deg) scale(1.5);
+  transform: rotateX(10deg) scale(1.1);
 }
 
 @keyframes floatImg {
@@ -58,7 +58,7 @@
 }
 
 /* MOBILE HERO FIXES */
-@media (max-width: 768px) {
+@media (max-width: 758px) {
   .hero-section .profile-img {
     width: 240px;
     height: 240px;

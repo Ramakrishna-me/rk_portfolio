@@ -457,21 +457,29 @@ export const WORK_ITEMS = [
     title: 'Sample UI for E-Learning App',
     description:
       'Created for light, casual use, with an intentionally minimal black-and-white interface.',
-    link: 'https://www.figma.com/design/BglTP2nDWPAGOuswxMHy3O/Learning-Application?t=ccrTdfjC14OsD7ks-1',
+    link: 'https://drive.google.com/file/d/1nOV292CvIYZvcwFxLnCVxaYXDj7_3pp3/view?usp=sharing',
     category: 'figma',
   },
   {
     file: 'assets/figma.jpg',
-    title: 'Admin Dashboard Design',
-    description: 'Dark-mode Figma layout for SaaS analytics dashboard.',
-    link: 'https://figma.com/file/67890',
+    title: 'Kids School',
+    description: 'Designed a simple kids school website with figma.',
+    link: 'https://drive.google.com/file/d/1D9Avp98l5b0LmsqjtAFxkZKofW8AifWX/view?usp=sharing',
     category: 'figma',
   },
   {
     file: 'assets/figma.jpg',
-    title: 'UX Research Report',
-    description: 'Case study on improving onboarding flow with user testing.',
-    link: 'https://example.com/ux-report',
+    title: 'Whatsapp UI',
+    description: 'Simple whatsapp chat UI and using a some different idea to design this.',
+    link: 'https://drive.google.com/file/d/1Zw4irFgoJCySCEYxyjs3ALlUZrHjXAUR/view?usp=drive_link',
+    category: 'figma',
+  },
+  {
+    file: 'assets/figma.jpg',
+    title: 'Login page',
+    description:
+      'Responsive login page design for both desktop and mobile, featuring a clean and modern user interface.',
+    link: 'https://drive.google.com/file/d/15Z_cFcNQZ0r81ISWrUDT9_7OOyf0HZcb/view?usp=sharing',
     category: 'figma',
   },
 ];
