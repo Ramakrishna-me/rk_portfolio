@@ -1,0 +1,66 @@
+<section class="contact-wrapper container-fluid py-5">
+
+    <h2 class="title">Get In Touch</h2>
+
+    <div class="row g-4 justify-content-center align-items-stretch">
+
+        <!-- LEFT CONTACT CARD -->
+        <div class="col-12 col-sm-10 col-md-5 col-lg-4">
+            <div class="contact-card h-100 w-100">
+                <h3>Contact Info</h3>
+
+                <div class="info-item">
+                    <span class="icon">📞</span>
+                    <p>+91 8300332683</p>
+                </div>
+
+                <div class="info-item">
+                    <span class="icon">📧</span>
+                    <p>krama4033@gmail.com</p>
+                </div>
+
+                <div class="info-item">
+                    <span class="icon">📍</span>
+                    <p>Chennai, India</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT FORM -->
+        <div class="col-12 col-sm-10 col-md-7 col-lg-6">
+            <form class="contact-form h-100 w-100" (submit)="sendEmail($event)"
+                #contactForm>
+
+                <div class="floating-field">
+                    <input type="text" name="user_name" placeholder=" "
+                        required>
+                    <label>Name</label>
+                </div>
+
+                <div class="floating-field">
+                    <input type="email" name="user_email" placeholder=" "
+                        required>
+                    <label>Email</label>
+                </div>
+
+                <div class="floating-field">
+                    <textarea name="message" placeholder=" "
+                        required></textarea>
+                    <label>Give me the secret handshake! 😉</label>
+                </div>
+
+                <button type="submit" class="submit-btn">Drop It</button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- SUCCESS POPUP -->
+    <div class="popup" *ngIf="showPopup">
+        <div class="popup-box">
+            <h3>Message Sent ✔</h3>
+            <p>Thanks for contacting me. I’ll respond soon.</p>
+        </div>
+    </div>
+
+</section>

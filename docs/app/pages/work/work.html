@@ -1,0 +1,68 @@
+<section class="work-wrapper">
+
+    <!-- HEADER -->
+    <div class="work-header fade-in">
+        <h1>Creative Work</h1>
+        <p>Selected projects, systems, and visual explorations</p>
+
+        <div class="work-filters">
+            <button
+                *ngFor="let category of categories"
+                [class.active]="selectedCategory === category"
+                (click)="filterCategory(category)">
+                {{ category }}
+            </button>
+        </div>
+    </div>
+
+    <!-- GRID -->
+    <div class="work-grid">
+
+        <div
+            class="work-card fade-in"
+            *ngFor="let item of filteredItems"
+            [class.design-card]="item.category.toLowerCase() === 'design'"
+            (click)="handleCardClick(item)">
+
+            <!-- MEDIA -->
+            <div class="card-media">
+
+                <img
+                    *ngIf="item.file.endsWith('.jpg') ||
+                 item.file.endsWith('.jpeg') ||
+                 item.file.endsWith('.png') ||
+                 item.file.endsWith('.svg')"
+                    [src]="item.file" />
+
+                <video
+                    *ngIf="item.file.endsWith('.mp4') || item.file.endsWith('.webm')"
+                    [src]="item.file"
+                    muted autoplay loop>
+                </video>
+
+                <div class="pdf-preview"
+                    *ngIf="item.file.endsWith('.pdf')">
+                    PDF
+                </div>
+
+            </div>
+
+            <!-- DETAILS -->
+            <div class="card-details">
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.description }}</p>
+
+                <a
+                    *ngIf="item.link && (item.category === 'angular' || item.category === 'figma' || item.category === 'Web Apps')"
+                    [href]="item.link"
+                    target="_blank"
+                    (click)="$event.stopPropagation()">
+                    Open →
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

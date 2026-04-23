@@ -1,0 +1,234 @@
+/* ========================================
+   MAIN WRAPPER (FLUID + RESPONSIVE)
+======================================== */
+.contact-wrapper {
+  width: 100%;
+  padding: 30px 2%;
+  background: #00000069;
+  backdrop-filter: blur(25px);
+  border-radius: 14px;
+  // box-shadow: 0 0 40px #ff0000;
+  animation: emberGlow 2s infinite;
+
+  // @keyframes emberGlow {
+  //   0% {
+  //     box-shadow: 0 0 33px #001aff;
+  //   }
+  //   50% {
+  //     box-shadow: 0 0 42px #a600ff;
+  //   }
+  //   100% {
+  //     box-shadow: 0 0 62px #ff00f7;
+  //   }
+  // }
+}
+
+/* ========================================
+   TITLE
+======================================== */
+.title {
+  font-size: 42px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #ff007f, #3f13ff);
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0 4px 18px #ffffff39;
+  text-align: center;
+  margin-bottom: 40px;
+  letter-spacing: 1.5px;
+
+  @media (max-width: 576px) {
+    font-size: 30px;
+    margin-bottom: 25px;
+  }
+}
+
+/* ========================================
+   CONTACT CARD
+======================================== */
+.contact-card {
+  background: rgba(0, 0, 0, 0.225);
+  color: #ffffff;
+  border-radius: 20px;
+  padding: 35px;
+  width: 100%;
+  backdrop-filter: blur(20px);
+  border: 1px solid #ffffff7e;
+  box-shadow: 0 4px 18px #ffffff26;
+  transition: 0.3s ease;
+
+  &:hover {
+    border-color: #ffffff;
+    box-shadow: 0 0 28px #ffffffb1;
+  }
+
+  @media (max-width: 576px) {
+    padding: 25px;
+  }
+}
+
+.contact-card h3 {
+  font-size: 24px;
+  margin-bottom: 25px;
+
+  @media (max-width: 576px) {
+    font-size: 20px;
+  }
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+  font-size: 18px;
+  background: linear-gradient(70deg, #3c60ff, #ee00ff);
+  -webkit-background-clip: text;
+  color: transparent;
+
+  .icon {
+    font-size: 26px;
+    margin-right: 12px;
+    color: #ffffff;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 16px;
+
+    .icon {
+      font-size: 20px;
+    }
+  }
+}
+
+/* ========================================
+   CONTACT FORM
+======================================== */
+.contact-form {
+  background: rgba(0, 0, 0, 0.225);
+  padding: 35px;
+  border-radius: 20px;
+  width: 100%;
+  backdrop-filter: blur(20px);
+  border: 1px solid #ffffff7e;
+  box-shadow: 0 4px 18px #ffffff26;
+
+  &:hover {
+    border-color: #ffffff;
+    box-shadow: 0 0 28px #ffffffb1;
+  }
+
+  @media (max-width: 576px) {
+    padding: 25px 18px;
+  }
+}
+
+/* FLOATING FIELDS */
+.floating-field {
+  position: relative;
+  margin-bottom: 22px;
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 14px 16px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #ffffff59;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s ease;
+
+    @media (max-width: 576px) {
+      font-size: 15px;
+    }
+  }
+
+  textarea {
+    height: 110px;
+    resize: none;
+  }
+
+  input:focus,
+  textarea:focus {
+    border-bottom-color: #8cd2ff;
+    box-shadow: 0 4px 14px #8cd2ff55;
+  }
+
+  label {
+    position: absolute;
+    left: 16px;
+    top: 14px;
+    color: #ffffff99;
+    pointer-events: none;
+    transition: 0.3s ease;
+
+    @media (max-width: 576px) {
+      font-size: 14px;
+    }
+  }
+
+  input:focus + label,
+  input:not(:placeholder-shown) + label,
+  textarea:focus + label,
+  textarea:not(:placeholder-shown) + label {
+    top: -12px;
+    font-size: 13px;
+    color: #fff;
+  }
+}
+
+/* SUBMIT BUTTON */
+.submit-btn {
+  width: 180px;
+  padding: 12px 24px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+  font-size: 16px;
+  transition: 0.3s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.28);
+    box-shadow: 0 0 20px #a0dcff88;
+  }
+
+  @media (max-width: 576px) {
+    width: 100%;
+  }
+}
+
+/* POPUP */
+.popup {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(20px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+  z-index: 999;
+}
+
+.popup-box {
+  background: #ffffff;
+  padding: 30px 40px;
+  border-radius: 18px;
+  text-align: center;
+  backdrop-filter: blur(20px);
+
+  @media (max-width: 576px) {
+    padding: 24px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
