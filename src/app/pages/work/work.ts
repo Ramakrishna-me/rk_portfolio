@@ -10,7 +10,7 @@ import { WORK_ITEMS } from './work.config';
 export class Work {
   items = WORK_ITEMS;
   filteredItems = [...this.items];
-  categories = ['All', 'Angular', 'Figma', 'Design'];
+  categories = ['All', 'Angular', 'Figma', 'Design', 'Web Apps'];
   selectedCategory = 'All';
 
   filterCategory(category: string) {

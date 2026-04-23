@@ -1,126 +1,195 @@
 .work-wrapper {
-  padding: 40px 6%;
-  color: #000;
+  padding: 10px 2%;
+  color: #111;
 
   /* HEADER */
   .work-header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 
     h1 {
-      font-size: 2.5rem;
-      background: linear-gradient(90deg, #ff007f, #7a5cff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-size: 2.6rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    p {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 6px;
     }
   }
 
+  /* FILTER */
   .work-filters {
     margin-top: 25px;
     display: flex;
     justify-content: center;
+    gap: 10px;
     flex-wrap: wrap;
-    gap: 12px;
+
     button {
-      background: #ffffff00;
-      border: 1px solid #525252b5;
-      color: #000000;
-      padding: 9px 18px;
-      border-radius: 20px;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      background: transparent;
+      padding: 7px 16px;
+      border-radius: 30px;
+      font-size: 0.8rem;
       cursor: pointer;
-      transition: 0.3s ease;
-      &.active,
+      transition: 0.25s;
+
       &:hover {
-        background: #000000b0;
-        color: #ffffff;
-        transform: scale(1.07);
-        box-shadow: 0 0 10px rgba(3, 0, 0, 0.386);
+        transform: translateY(-2px);
+        border-color: #000;
+      }
+
+      &.active {
+        background: #000;
+        color: #fff;
       }
     }
   }
 
-  /* CARD WRAPPER */
+  /* 🔥 MASONRY STYLE GRID */
+  .work-grid {
+    column-count: 4;
+    column-gap: 20px;
+  }
+
+  @media (max-width: 1200px) {
+    .work-grid {
+      column-count: 3;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .work-grid {
+      column-count: 2;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .work-grid {
+      column-count: 1;
+    }
+  }
+
+  /* CARD */
   .work-card {
-    background: #00000067;
+    break-inside: avoid;
+    margin-bottom: 20px;
     border-radius: 16px;
     overflow: hidden;
-    transition: 0.3s ease;
-    border: 1px solid #c2c2c2ad;
     cursor: pointer;
-    // height: 450px;
-    height: auto;
+    transition: all 0.4s ease;
+    position: relative;
+
+    background: #4a4a4a2c;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+
+    &:hover {
+      transform: scale(1.05);
+      z-index: 5;
+    }
   }
 
-  .work-card:hover {
-    transform: translateY(-6px) scale(1.03);
-    box-shadow: 0 0 20px #000000;
+  /* 🔥 DESIGN CATEGORY SPECIAL STYLE */
+  .design-card {
+    transform-origin: center;
+
+    &:hover {
+      transform: scale(1.12); /* BIG EXPANSION */
+      z-index: 10;
+      // box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+    }
+
+    .card-media {
+      aspect-ratio: auto; /* allow natural height */
+    }
   }
 
-  /* FIXED MEDIA */
+  /* MEDIA */
   .card-media {
     width: 100%;
-    height: 250px;
-    aspect-ratio: 4 / 5; /* Perfect poster size */
-    background: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    position: relative;
+
+    img,
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.5s ease;
+    }
   }
 
-  .card-media img,
-  .card-media video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: 0.4s ease;
+  /* ZOOM EFFECT */
+  .work-card:hover img,
+  .work-card:hover video {
+    transform: scale(1.1);
   }
 
-  .work-card:hover .card-media img,
-  .work-card:hover .card-media video {
-    transform: scale(1.05);
-  }
-
+  /* PDF */
   .pdf-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    background: linear-gradient(135deg, #111, #444);
+    color: #fff;
+    font-weight: 600;
+  }
+
+  /* DETAILS (FLOAT OVER IMAGE FOR DESIGN ITEMS) */
+  .card-details {
+    padding: 14px;
+
+    h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 0.8rem;
+      color: #666;
+      margin: 6px 0;
+    }
+
+    a {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: #000;
+    }
+  }
+
+  /* 🔥 DESIGN OVERLAY TEXT */
+  .design-card .card-details {
+    position: absolute;
+    bottom: 0;
     width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #ff0000, #1a1a1a);
-  }
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+    color: #fff;
 
-  /* CARD CONTENT */
-  .card-details h3 {
-    font-size: 1.1rem;
-    margin-bottom: 8px;
-  }
+    p {
+      color: #ddd;
+    }
 
-  .card-details p {
-    font-size: 0.9rem;
-    color: #000;
-  }
-
-  /* MOBILE FIX */
-  @media (max-width: 576px) {
-    .card-media {
-      aspect-ratio: 3 / 4; /* Better for mobile */
+    a {
+      color: #fff;
     }
   }
 
-  /* LARGE DESKTOP FIX */
-  @media (min-width: 1400px) {
-    .card-media {
-      aspect-ratio: 4 / 5;
-    }
-  }
-
-  /* Animation */
+  /* ANIMATION */
   .fade-in {
     opacity: 0;
-    animation: fadeIn 0.8s ease forwards;
+    animation: fadeIn 0.7s ease forwards;
   }
 
   @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(15px);
+      transform: translateY(20px);
     }
     to {
       opacity: 1;

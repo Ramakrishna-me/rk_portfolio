@@ -159,7 +159,9 @@
   border: 1px solid #ffffff26;
   backdrop-filter: blur(12px);
   transform-style: preserve-3d;
-  transition: transform 0.7s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.7s ease,
+    box-shadow 0.3s ease;
 }
 
 .service-card:hover {

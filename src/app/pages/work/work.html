@@ -1,14 +1,12 @@
-<section class="work-wrapper container-fluid py-4">
+<section class="work-wrapper">
 
-    <div class="work-header text-center fade-in mb-4">
-        <h1 class="fw-bold">My Creative Works</h1>
-        <p class="text-muted">Explore my Angular builds, design systems, and UI
-            experiments</p>
+    <!-- HEADER -->
+    <div class="work-header fade-in">
+        <h1>Creative Work</h1>
+        <p>Selected projects, systems, and visual explorations</p>
 
-        <div
-            class="work-filters d-flex flex-wrap justify-content-center mt-3 gap-2">
+        <div class="work-filters">
             <button
-                class="btn px-3 py-1"
                 *ngFor="let category of categories"
                 [class.active]="selectedCategory === category"
                 (click)="filterCategory(category)">
@@ -17,55 +15,50 @@
         </div>
     </div>
 
-    <!-- Bootstrap Grid Control -->
-    <div
-        class="row g-4 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
+    <!-- GRID -->
+    <div class="work-grid">
 
-        <div class="col d-flex" *ngFor="let item of filteredItems">
+        <div
+            class="work-card fade-in"
+            *ngFor="let item of filteredItems"
+            [class.design-card]="item.category.toLowerCase() === 'design'"
+            (click)="handleCardClick(item)">
 
-            <div
-                class="work-card fade-in w-100 d-flex flex-column"
-                [attr.data-type]="item.category"
-                (click)="handleCardClick(item)">
+            <!-- MEDIA -->
+            <div class="card-media">
 
-                <div class="card-media">
+                <img
+                    *ngIf="item.file.endsWith('.jpg') ||
+                 item.file.endsWith('.jpeg') ||
+                 item.file.endsWith('.png') ||
+                 item.file.endsWith('.svg')"
+                    [src]="item.file" />
 
-                    <!-- IMAGE -->
-                    <img
-                        *ngIf="item.file.endsWith('.jpg') ||
-                               item.file.endsWith('.jpeg') ||
-                               item.file.endsWith('.png') ||
-                               item.file.endsWith('.svg')"
-                        [src]="item.file"
-                        class="img-fluid" />
+                <video
+                    *ngIf="item.file.endsWith('.mp4') || item.file.endsWith('.webm')"
+                    [src]="item.file"
+                    muted autoplay loop>
+                </video>
 
-                    <!-- VIDEO -->
-                    <video
-                        *ngIf="item.file.endsWith('.mp4') || item.file.endsWith('.webm')"
-                        [src]="item.file"
-                        muted autoplay loop></video>
-
-                    <!-- PDF -->
-                    <div class="pdf-preview"
-                        *ngIf="item.file.endsWith('.pdf')"></div>
+                <div class="pdf-preview"
+                    *ngIf="item.file.endsWith('.pdf')">
+                    PDF
                 </div>
 
-                <div
-                    class="card-details text-center d-flex flex-column flex-grow-1 p-3">
-                    <h3 class="fw-semibold">{{ item.title }}</h3>
+            </div>
 
-                    <p class="text-muted flex-grow-1">{{ item.description }}</p>
+            <!-- DETAILS -->
+            <div class="card-details">
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.description }}</p>
 
-                    <a
-                        *ngIf="item.link && (item.category === 'angular' || item.category === 'figma')"
-                        [href]="item.link"
-                        target="_blank"
-                        class="btn btn-dark mt-2 px-3 py-2"
-                        (click)="$event.stopPropagation()">
-                        Open Project
-                    </a>
-                </div>
-
+                <a
+                    *ngIf="item.link && (item.category === 'angular' || item.category === 'figma' || item.category === 'Web Apps')"
+                    [href]="item.link"
+                    target="_blank"
+                    (click)="$event.stopPropagation()">
+                    Open →
+                </a>
             </div>
 
         </div>

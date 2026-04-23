@@ -59,7 +59,7 @@ export class Background implements AfterViewInit, OnDestroy {
 
     this.renderer.addClass(particle, 'particle');
 
-    const size = Math.random() * 3 + 1;
+    const size = Math.random() * 10 + 2;
     particle.style.width = `${size}px`;
     particle.style.height = `${size}px`;
 
@@ -74,7 +74,7 @@ export class Background implements AfterViewInit, OnDestroy {
       const removeTimeout = window.setTimeout(() => {
         particle.remove();
         this.createdParticles = this.createdParticles.filter((p) => p !== particle);
-      }, 2200);
+      }, 4200);
 
       this.timeouts.add(removeTimeout);
     }
@@ -151,7 +151,7 @@ export class Background implements AfterViewInit, OnDestroy {
 
     // Sphere parallax (keeps animation + adds parallax)
     const spheres = this.rootRef.nativeElement.querySelectorAll(
-      '.gradient-sphere'
+      '.gradient-sphere',
     ) as NodeListOf<HTMLElement>;
 
     const moveX = (e.clientX / window.innerWidth - 0.5) * 10;

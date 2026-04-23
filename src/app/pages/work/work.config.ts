@@ -1,6 +1,232 @@
 export const WORK_ITEMS = [
   //
   //  DESIGN PROJECTS
+  // Greenstakes
+  {
+    file: 'assets/my_works/design-img/GS_ (1).png',
+    title: 'Poster for Greenstakes',
+    description:
+      'Impact-driven social creatives promoting sustainable packaging and recycling solutions.',
+    link: 'https://example.com/ad-promo',
+    category: 'design',
+  },
+  {
+    file: 'assets/my_works/design-img/GS_ (2).png',
+    title: 'Poster for Greenstakes',
+    description:
+      'Impact-driven social creatives promoting sustainable packaging and recycling solutions.',
+    link: 'https://example.com/ad-promo',
+    category: 'design',
+  },
+  {
+    file: 'assets/my_works/design-img/GS_ (3).png',
+    title: 'Poster for Greenstakes',
+    description:
+      'Impact-driven social creatives promoting sustainable packaging and recycling solutions.',
+    link: 'https://example.com/ad-promo',
+    category: 'design',
+  },
+  {
+    file: 'assets/my_works/design-img/GS_ (4).png',
+    title: 'Poster for Greenstakes',
+    description:
+      'Impact-driven social creatives promoting sustainable packaging and recycling solutions.',
+    link: 'https://example.com/ad-promo',
+    category: 'design',
+  },
+  {
+    file: 'assets/my_works/design-img/GS_ (5).png',
+    title: 'Poster for Greenstakes',
+    description:
+      'Impact-driven social creatives promoting sustainable packaging and recycling solutions.',
+    link: 'https://example.com/ad-promo',
+    category: 'design',
+  },
+  {
+    file: 'assets/my_works/design-img/GS_ (6).png',
+    title: 'Poster for Greenstakes',
+    description:
+      'Impact-driven social creatives promoting sustainable packaging and recycling solutions.',
+    link: 'https://example.com/ad-promo',
+    category: 'design',
+  },
+  {
+    file: 'assets/my_works/design-img/GS_ (7).png',
+    title: 'Poster for Greenstakes',
+    description:
+      'Impact-driven social creatives promoting sustainable packaging and recycling solutions.',
+    link: 'https://example.com/ad-promo',
+    category: 'design',
+  },
+  {
+    file: 'assets/my_works/design-img/GS_ (8).png',
+    title: 'Poster for Greenstakes',
+    description:
+      'Impact-driven social creatives promoting sustainable packaging and recycling solutions.',
+    link: 'https://example.com/ad-promo',
+    category: 'design',
+  },
+  {
+    file: 'assets/my_works/design-img/GS_ (9).png',
+    title: 'Poster for Greenstakes',
+    description:
+      'Impact-driven social creatives promoting sustainable packaging and recycling solutions.',
+    link: 'https://example.com/ad-promo',
+    category: 'design',
+  },
+  {
+    file: 'assets/my_works/design-img/GS_ (10).png',
+    title: 'Poster for Greenstakes',
+    description:
+      'Impact-driven social creatives promoting sustainable packaging and recycling solutions.',
+    link: 'https://example.com/ad-promo',
+    category: 'design',
+  },
+  {
+    file: 'assets/my_works/design-img/GS_ (11).png',
+    title: 'Poster for Greenstakes',
+    description:
+      'Impact-driven social creatives promoting sustainable packaging and recycling solutions.',
+    link: 'https://example.com/ad-promo',
+    category: 'design',
+  },
+  {
+    file: 'assets/my_works/design-img/GS_ (12).png',
+    title: 'Poster for Greenstakes',
+    description:
+      'Impact-driven social creatives promoting sustainable packaging and recycling solutions.',
+    link: 'https://example.com/ad-promo',
+    category: 'design',
+  },
+  {
+    file: 'assets/my_works/design-img/GS_ (13).png',
+    title: 'Poster for Greenstakes',
+    description:
+      'Impact-driven social creatives promoting sustainable packaging and recycling solutions.',
+    link: 'https://example.com/ad-promo',
+    category: 'design',
+  },
+  // {
+  //   file: 'assets/my_works/design-img/GS_ (14).png',
+  //   title: 'Poster for Greenstakes',
+  //   description:
+  //     'Impact-driven social creatives promoting sustainable packaging and recycling solutions.',
+  //   link: 'https://example.com/ad-promo',
+  //   category: 'design',
+  // },
+  {
+    file: 'assets/my_works/design-img/GS_ (15).png',
+    title: 'Poster for Greenstakes',
+    description:
+      'Impact-driven social creatives promoting sustainable packaging and recycling solutions.',
+    link: 'https://example.com/ad-promo',
+    category: 'design',
+  },
+  {
+    file: 'assets/my_works/design-img/GS_ (16).png',
+    title: 'Poster for Greenstakes',
+    description:
+      'Impact-driven social creatives promoting sustainable packaging and recycling solutions.',
+    link: 'https://example.com/ad-promo',
+    category: 'design',
+  },
+  // {
+  //   file: 'assets/my_works/design-img/GS_ (17).png',
+  //   title: 'Poster for Greenstakes',
+  //   description:
+  //     'Impact-driven social creatives promoting sustainable packaging and recycling solutions.',
+  //   link: 'https://example.com/ad-promo',
+  //   category: 'design',
+  // },
+  {
+    file: 'assets/my_works/design-img/GS_ (18).png',
+    title: 'Poster for Greenstakes',
+    description:
+      'Impact-driven social creatives promoting sustainable packaging and recycling solutions.',
+    link: 'https://example.com/ad-promo',
+    category: 'design',
+  },
+  {
+    file: 'assets/my_works/design-img/GS_ (19).png',
+    title: 'Poster for Greenstakes',
+    description:
+      'Impact-driven social creatives promoting sustainable packaging and recycling solutions.',
+    link: 'https://example.com/ad-promo',
+    category: 'design',
+  },
+  {
+    file: 'assets/my_works/design-img/GS_ (20).png',
+    title: 'Poster for Greenstakes',
+    description:
+      'Impact-driven social creatives promoting sustainable packaging and recycling solutions.',
+    link: 'https://example.com/ad-promo',
+    category: 'design',
+  },
+  {
+    file: 'assets/my_works/design-img/GS_ (21).png',
+    title: 'Poster for Greenstakes',
+    description:
+      'Impact-driven social creatives promoting sustainable packaging and recycling solutions.',
+    link: 'https://example.com/ad-promo',
+    category: 'design',
+  },
+  {
+    file: 'assets/my_works/design-img/GS_ (22).png',
+    title: 'Poster for Greenstakes',
+    description:
+      'Impact-driven social creatives promoting sustainable packaging and recycling solutions.',
+    link: 'https://example.com/ad-promo',
+    category: 'design',
+  },
+  {
+    file: 'assets/my_works/design-img/GS_ (23).png',
+    title: 'Poster for Greenstakes',
+    description:
+      'Impact-driven social creatives promoting sustainable packaging and recycling solutions.',
+    link: 'https://example.com/ad-promo',
+    category: 'design',
+  },
+  {
+    file: 'assets/my_works/design-img/GS_ (24).png',
+    title: 'Poster for Greenstakes',
+    description:
+      'Impact-driven social creatives promoting sustainable packaging and recycling solutions.',
+    link: 'https://example.com/ad-promo',
+    category: 'design',
+  },
+  {
+    file: 'assets/my_works/design-img/GS_ (25).png',
+    title: 'Poster for Greenstakes',
+    description:
+      'Impact-driven social creatives promoting sustainable packaging and recycling solutions.',
+    link: 'https://example.com/ad-promo',
+    category: 'design',
+  },
+  {
+    file: 'assets/my_works/design-img/GS_ (26).png',
+    title: 'Poster for Greenstakes',
+    description:
+      'Impact-driven social creatives promoting sustainable packaging and recycling solutions.',
+    link: 'https://example.com/ad-promo',
+    category: 'design',
+  },
+  {
+    file: 'assets/my_works/design-img/GS_ (27).png',
+    title: 'Poster for Greenstakes',
+    description:
+      'Impact-driven social creatives promoting sustainable packaging and recycling solutions.',
+    link: 'https://example.com/ad-promo',
+    category: 'design',
+  },
+  {
+    file: 'assets/my_works/design-img/GS_ (28).png',
+    title: 'Poster for Greenstakes',
+    description:
+      'Impact-driven social creatives promoting sustainable packaging and recycling solutions.',
+    link: 'https://example.com/ad-promo',
+    category: 'design',
+  },
+
   {
     file: 'assets/my_works/design-img/D12 (1).jpg',
     title: 'Massage center menu card page 1',
@@ -191,13 +417,6 @@ export const WORK_ITEMS = [
     category: 'design',
   },
   {
-    file: 'assets/my_works/design-img/D12 (28).jpg',
-    title: 'Selp promotion banner',
-    description: 'High-energy motion graphic ad for social campaigns.',
-    link: 'https://example.com/ad-promo',
-    category: 'design',
-  },
-  {
     file: 'assets/my_works/design-img/D12 (29).jpg',
     title: 'Broucher for CREDORA',
     description: 'High-energy motion graphic ad for social campaigns.',
@@ -228,13 +447,6 @@ export const WORK_ITEMS = [
   {
     file: 'assets/my_works/design-img/D12 (33).jpg',
     title: 'Poster for Express Evenue',
-    description: 'High-energy motion graphic ad for social campaigns.',
-    link: 'https://example.com/ad-promo',
-    category: 'design',
-  },
-  {
-    file: 'assets/my_works/design-img/D12 (34).jpg',
-    title: 'Poster for EHOTEL',
     description: 'High-energy motion graphic ad for social campaigns.',
     link: 'https://example.com/ad-promo',
     category: 'design',
@@ -316,6 +528,7 @@ export const WORK_ITEMS = [
     link: 'https://example.com/ad-promo',
     category: 'design',
   },
+
   // {
   //   file: 'assets/my_works/pfd/PDF1 (1).pdf',
   //   title: 'Ad Campaign Promo',
@@ -330,86 +543,28 @@ export const WORK_ITEMS = [
   //   link: 'https://example.com/ad-promo',
   //   category: 'design',
   // },
-  // {
-  //   file: 'assets/my_works/pfd/PDF1 (3).pdf',
-  //   title: 'Ad Campaign Promo',
-  //   description: 'High-energy motion graphic ad for social campaigns.',
-  //   link: 'https://example.com/ad-promo',
-  //   category: 'design',
-  // },
-  // {
-  //   file: 'assets/my_works/pfd/PDF1 (4).pdf',
-  //   title: 'Ad Campaign Promo',
-  //   description: 'High-energy motion graphic ad for social campaigns.',
-  //   link: 'https://example.com/ad-promo',
-  //   category: 'design',
-  // },
-  // {
-  //   file: 'assets/my_works/pfd/PDF1 (5).pdf',
-  //   title: 'Ad Campaign Promo',
-  //   description: 'High-energy motion graphic ad for social campaigns.',
-  //   link: 'https://example.com/ad-promo',
-  //   category: 'design',
-  // },
-  // {
-  //   file: 'assets/my_works/pfd/PDF1 (6).pdf',
-  //   title: 'Ad Campaign Promo',
-  //   description: 'High-energy motion graphic ad for social campaigns.',
-  //   link: 'https://example.com/ad-promo',
-  //   category: 'design',
-  // },
-  // {
-  //   file: 'assets/my_works/pfd/PDF1 (7).pdf',
-  //   title: 'Ad Campaign Promo',
-  //   description: 'High-energy motion graphic ad for social campaigns.',
-  //   link: 'https://example.com/ad-promo',
-  //   category: 'design',
-  // },
-  // {
-  //   file: 'assets/my_works/pfd/PDF1 (8).pdf',
-  //   title: 'Ad Campaign Promo',
-  //   description: 'High-energy motion graphic ad for social campaigns.',
-  //   link: 'https://example.com/ad-promo',
-  //   category: 'design',
-  // },
-  // {
-  //   file: 'assets/my_works/pfd/PDF1 (9).pdf',
-  //   title: 'Ad Campaign Promo',
-  //   description: 'High-energy motion graphic ad for social campaigns.',
-  //   link: 'https://example.com/ad-promo',
-  //   category: 'design',
-  // },
-  // {
-  //   file: 'assets/my_works/pfd/PDF1 (10).pdf',
-  //   title: 'Ad Campaign Promo',
-  //   description: 'High-energy motion graphic ad for social campaigns.',
-  //   link: 'https://example.com/ad-promo',
-  //   category: 'design',
-  // },
-  // {
-  //   file: 'assets/my_works/pfd/PDF1 (11).pdf',
-  //   title: 'Ad Campaign Promo',
-  //   description: 'High-energy motion graphic ad for social campaigns.',
-  //   link: 'https://example.com/ad-promo',
-  //   category: 'design',
-  // },
-  // {
-  //   file: 'assets/my_works/pfd/PDF1 (12).pdf',
-  //   title: 'Ad Campaign Promo',
-  //   description: 'High-energy motion graphic ad for social campaigns.',
-  //   link: 'https://example.com/ad-promo',
-  //   category: 'design',
-  // },
-  // {
-  //   file: 'assets/my_works/pfd/PDF1 (13).pdf',
-  //   title: 'Ad Campaign Promo',
-  //   description: 'High-energy motion graphic ad for social campaigns.',
-  //   link: 'https://example.com/ad-promo',
-  //   category: 'design',
-  // },
 
-  //
-  //
+  // Web App
+  {
+    file: 'assets/web apps.jpg',
+    title: 'PSD Convert',
+    description:
+      'A lightweight web app that converts PSD files into accessible visual formats directly in the browser, allowing users to preview and extract design assets without external software.',
+    link: 'https://psd-converter.netlify.app/',
+    category: 'Web Apps',
+    // image: 'assets/Angular_Logo.gif',
+  },
+
+  {
+    file: 'assets/web apps.jpg',
+    title: 'BrandKit Generator',
+    description:
+      'Simplifies brand creation by automatically producing consistent color palettes, font pairings, and visual assets from minimal input.',
+    link: 'https://brandkit-generator.netlify.app/',
+    category: 'Web Apps',
+    // image: 'assets/Angular_Logo.gif',
+  },
+
   //  ANGULAR PROJECTS
   {
     file: 'assets/Calculater.jpg',
